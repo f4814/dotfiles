@@ -1,6 +1,4 @@
 """"""""""""""""
-"" BASIC SETUP "
-""""""""""""""""
 set nocompatible                " No vi compatible
 filetype off
 set t_Co=256                    " 256-bit color
