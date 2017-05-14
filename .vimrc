@@ -10,6 +10,7 @@ set ic
 set tabstop=8                   "A tab is 8 spaces
 set expandtab                   "Always uses spaces instead of tabs
 set softtabstop=4               "Insert 4 spaces when tab is pressed
+set smarttab
 set shiftwidth=4                "An indent is 4 spaces
 set shiftround                  "Round indent to nearest shiftwidth multiple
 
@@ -101,3 +102,5 @@ nnoremap <C-a> :TagbarToggle<CR>
 " numbertoggle
 let g:NumberToggleTrigger = "<leader>n"
 
+" Syntastic
+nnoremap <leader>s <Esc>:SyntasticToggleMode<CR>
