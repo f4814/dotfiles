@@ -37,6 +37,11 @@ set encoding=utf8
 " Syntax
 syntax on
 colorscheme jellybeans
+let g:hs_highlight_delimiters = 1
+let g:hs_highlight_boolean = 1
+let g:hs_highlight_types = 1
+let g:hs_highlight_debug = 1
+let g:python_highlight_all = 1 " All python options
 
 " Make powerline look nicer
 set laststatus=2                " Always display the statusline in all windows
