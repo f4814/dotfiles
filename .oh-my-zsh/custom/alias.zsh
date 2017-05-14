@@ -6,8 +6,7 @@ alias la='ls -a'
 alias lla='ls -la'
 
 #git
-alias gpom='git push origin master'
-alias gpo='git push origin'
+alias g='git'
 
 alias q="exit"
 alias ":q"="exit"

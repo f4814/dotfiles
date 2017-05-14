@@ -1,0 +1,8 @@
+[user]
+	email = me@f4814n.de
+	name = Fabian Geiselhart
+
+[alias]
+    pl = pull --rebase
+    p = push
+    
