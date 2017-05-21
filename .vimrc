@@ -7,7 +7,7 @@ set ttimeoutlen=0               " No esc delay
 set ic
 
 " Tab specific option
-set tabstop=8                   "A tab is 8 spaces
+set tabstop=4                   "A tab is 8 spaces
 set expandtab                   "Always uses spaces instead of tabs
 set softtabstop=4               "Insert 4 spaces when tab is pressed
 set smarttab
