@@ -84,6 +84,7 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
 """"""""""""""""""""
+let mapleader = ","
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -91,13 +92,13 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Open NERDTree
-:nnoremap <C-n> :NERDTreeToggle<CR> 
+:nnoremap <leader>n :NERDTreeToggle<CR> 
 
 " hardmode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " tagbar
-nnoremap <C-a> :TagbarToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
 
 " numbertoggle
 let g:NumberToggleTrigger = "<leader>n"
