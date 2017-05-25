@@ -101,7 +101,7 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 
 " numbertoggle
-let g:NumberToggleTrigger = "<leader>n"
+let g:NumberToggleTrigger = "<leader>r"
 
 " Syntastic
 nnoremap <leader>s <Esc>:SyntasticToggleMode<CR>
