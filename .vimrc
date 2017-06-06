@@ -60,7 +60,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'wikitopian/hardmode'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -103,5 +103,5 @@ nnoremap <leader>t :TagbarToggle<CR>
 " numbertoggle
 let g:NumberToggleTrigger = "<leader>r"
 
-" Syntastic
-nnoremap <leader>s <Esc>:SyntasticToggleMode<CR>
+" ALE
+nnoremap <leader>s <Esc>:ALEToggle<CR>
