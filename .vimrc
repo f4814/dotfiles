@@ -1,10 +1,16 @@
-""""""""""""""""
+""""""""""""""""""
+"" BASIC OPTIONS "
+""""""""""""""""""
 set nocompatible                " No vi compatible
 filetype off
 set t_Co=256                    " 256-bit color
 set background=dark
 set ttimeoutlen=0               " No esc delay
 set ic
+set vb                          " Don't beep at me
+set cursorline                  " Highlight current line
+set cursorcolumn                " Highlight current column
+set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
 
 " Tab specific option
 set tabstop=4                   "A tab is 8 spaces
@@ -13,6 +19,12 @@ set softtabstop=4               "Insert 4 spaces when tab is pressed
 set smarttab
 set shiftwidth=4                "An indent is 4 spaces
 set shiftround                  "Round indent to nearest shiftwidth multiple
+
+" Search
+set hlsearch                    " Highlight my search
+set incsearch                   " Incremental
+set ignorecase
+set smartcase                   " Don't ignore uppercase
 
 " Allow saving files as sudo
 cmap w!! w !sudo tee > /dev/null %<CR>
@@ -27,6 +39,9 @@ set path+=**                    " Recursive path; Allows recursive :find
 set wildignore+=*/tmp/*,*.swp   " Ignore tmp and swp
 set wildmode=list,full          " Appereance of auto-complete window
 
+" Indetiation
+set autoindent                  " keep indentiation
+set smartindent                 " be smart
 filetype plugin indent on
 
 """""""""""
@@ -79,6 +94,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " auto hardmode
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" ALE
+let g:ale_lint_delay = 3
+let g:ale_linters = { 'haskell' : ['hdevtools']}
 
 
 """"""""""""""""""""
