@@ -379,8 +379,8 @@ call s:X("Normal","e8d8d3",s:background_color,"","Grey","")
 set background=dark
 
 if version >= 700
-  call s:X("CursorLine","","1c1c1c","","",s:termBlack)
-  call s:X("CursorColumn","","1c1c1c","","",s:termBlack)
+  call s:X("CursorLine","","303030","","",s:termBlack) " corig 1c1c1c
+  call s:X("CursorColumn","","202020","","",s:termBlack)
   call s:X("MatchParen","ffffff","556779","bold","","DarkCyan")
 
   call s:X("TabLine","000000","b0b8c0","italic","",s:termBlack)
