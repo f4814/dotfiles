@@ -97,13 +97,14 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " ALE
 let g:ale_lint_delay = 3
-let g:ale_linters = { 'haskell' : ['hdevtools']}
+" let g:ale_linters = { 'haskell' : ['hdevtools']}
 
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
 """"""""""""""""""""
 let mapleader = ","
+
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
