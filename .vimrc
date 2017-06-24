@@ -11,6 +11,7 @@ set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
+set noswapfile                  " No swapping
 
 " Tab specific option
 set tabstop=4                   "A tab is 8 spaces
