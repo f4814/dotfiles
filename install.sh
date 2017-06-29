@@ -31,5 +31,6 @@ for file in $FILES; do
 done
 
 echo "Prepairing Vim plugin setup\n--------------------------------------------------------------------------------------------------------------------------------"
+pip3 install powerline-status
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c ":PluginInstall" -c ":q"
