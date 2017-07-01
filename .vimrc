@@ -98,7 +98,8 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " ALE
 let g:ale_lint_delay = 3
-" let g:ale_linters = { 'haskell' : ['hdevtools']}
+let g:ale_sign_colum_always = 1 " b/c jumping text
+let g:ale_linters = { 'haskell' : ['hdevtools']}
 
 
 """"""""""""""""""""
