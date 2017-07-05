@@ -73,6 +73,7 @@ set rtp+=~/.vim/bundle/Vundle.vim "set the runtime path to include & initialize
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'xolox/vim-misc'
 Plugin 'wikitopian/hardmode'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-surround'
@@ -81,6 +82,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'xolox/vim-easytags'
 
 call vundle#end()
 
@@ -98,7 +100,7 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " ALE
 let g:ale_lint_delay = 3
-let g:ale_sign_colum_always = 1 " b/c jumping text
+let g:ale_sign_column_always = 1 " b/c jumping text
 let g:ale_linters = { 'haskell' : ['hdevtools']}
 
 
@@ -127,3 +129,6 @@ let g:NumberToggleTrigger = "<leader>r"
 
 " ALE
 nnoremap <leader>s <Esc>:ALEToggle<CR>
+
+" :noh
+nnoremap <leader>u <Esc>:noh<CR>
