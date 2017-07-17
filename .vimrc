@@ -103,6 +103,8 @@ let g:ale_lint_delay = 3
 let g:ale_sign_column_always = 1 " b/c jumping text
 let g:ale_linters = { 'haskell' : ['hdevtools']}
 
+" easytags
+let g:easytags_async = 1
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
