@@ -11,7 +11,7 @@ set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
-set noswapfile                  " No swapping
+set noswapfile
 
 " Tab specific option
 set tabstop=4                   "A tab is 8 spaces
@@ -64,7 +64,6 @@ let g:python_highlight_all = 1 " All python options
 set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
 set noshowmode                  " Hide the default mode text
-
 
 """""""""""""""""""
 "" PLUGIN CONFIG "
