@@ -83,6 +83,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'xolox/vim-easytags'
 
+" Language support
+Plugin 'vim-python/python-syntax',      {'for': ['python']} " Syntax
+Plugin 'tmhedberg/SimpylFold',          {'for': ['python']} " Folding
+
 call vundle#end()
 
 " Powerline setup
@@ -104,6 +108,10 @@ let g:ale_linters = { 'haskell' : ['hdevtools']}
 
 " easytags
 let g:easytags_async = 1
+
+" Python stuff
+let g:python_highlight_all = 1 
+let g:SimpylFold_fold_import = 0
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
