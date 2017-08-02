@@ -141,3 +141,6 @@ nnoremap <leader>s <Esc>:ALEToggle<CR>
 
 " :noh
 nnoremap <leader>u <Esc>:noh<CR>
+
+" make program
+nnoremap <leader>m <Esc>:wa<CR>:!make 
