@@ -102,9 +102,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " ALE
-let g:ale_lint_delay = 3
+let g:ale_lint_delay = 1000
 let g:ale_sign_column_always = 1 " b/c jumping text
 let g:ale_linters = { 'haskell' : ['hdevtools']}
+let g:ale_sign_error = "✗"
+let g:ale_sign_warning = "⚠"
 
 " easytags
 let g:easytags_async = 1
