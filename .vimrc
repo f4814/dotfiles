@@ -76,16 +76,17 @@ Plugin 'xolox/vim-misc'
 Plugin 'wikitopian/hardmode'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'xolox/vim-easytags'
+Plugin 'w0rp/ale',                      {'for': ['haskell']} " Don't load if not configured
 
 " Language support
 Plugin 'vim-python/python-syntax',      {'for': ['python']} " Syntax
 Plugin 'tmhedberg/SimpylFold',          {'for': ['python']} " Folding
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
 
@@ -114,6 +115,17 @@ let g:easytags_async = 1
 " Python stuff
 let g:python_highlight_all = 1 
 let g:SimpylFold_fold_import = 0
+
+" haskell-vim
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+let g:haskell_indent_disable = 1          " don't need it
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
