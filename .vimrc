@@ -2,7 +2,7 @@
 "" BASIC OPTIONS "
 """"""""""""""""""
 set nocompatible                " No vi compatible
-filetype off
+filetype on
 set t_Co=256                    " 256-bit color
 set background=dark
 set ttimeoutlen=0               " No esc delay
@@ -68,27 +68,26 @@ set noshowmode                  " Hide the default mode text
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim "set the runtime path to include & initialize
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'wikitopian/hardmode'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'tpope/vim-surround'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'xolox/vim-easytags'
-Plugin 'w0rp/ale',                      {'for': ['haskell']} " Don't load if not configured
+Plug 'VundleVim/Vundle.vim'
+Plug 'xolox/vim-misc'
+Plug 'wikitopian/hardmode'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree',           {'on': ['NERDTreeToggle', 'NERDTree']}
+Plug 'ryanoasis/vim-devicons'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'w0rp/ale',                      {'for': ['haskell']} " Don't load if not configured
 
 " Language support
-Plugin 'vim-python/python-syntax',      {'for': ['python']} " Syntax
-Plugin 'tmhedberg/SimpylFold',          {'for': ['python']} " Folding
-Plugin 'neovimhaskell/haskell-vim'
+Plug 'vim-python/python-syntax',      {'for': ['python']} " Syntax
+Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Folding
+Plug 'neovimhaskell/haskell-vim'
 
-call vundle#end()
+call plug#end()
 
 " Powerline setup
 python3 from powerline.vim import setup as powerline_setup
@@ -96,11 +95,11 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " auto hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()n
 
 " ALE
 let g:ale_lint_delay = 1000
@@ -109,8 +108,8 @@ let g:ale_linters = { 'haskell' : ['hdevtools']}
 let g:ale_sign_error = "✗"
 let g:ale_sign_warning = "⚠"
 
-" easytags
-let g:easytags_async = 1
+" CtrlP
+let g:ctrlp_extensions = ['tag']
 
 " Python stuff
 let g:python_highlight_all = 1 
