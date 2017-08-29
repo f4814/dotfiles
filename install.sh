@@ -2,7 +2,7 @@
 
 #Run script to link all configuration files into place
 
-FILES=".vimrc .vim/colors/jellybeans.vim .zshrc .oh-my-zsh/custom/conf.zsh .oh-my-zsh/custom/alias.zsh .tmux.conf"
+FILES=".vimrc .vim/colors/jellybeans.vim .zshrc .oh-my-zsh/custom/conf.zsh .oh-my-zsh/custom/alias.zsh .tmux.conf .Xresources"
 
 DIRS=".vim/colors .oh-my-zsh/custom"
 

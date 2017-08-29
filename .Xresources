@@ -1,0 +1,14 @@
+URxvt.font: xft:BitstreamVeraSansMono Nerd Font:size=20
+URxvt.boldFont: xft:BitstreamVeraSansMono Nerd Font:size=20:style=Bold
+
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt*foreground: rgba:FFFF/FFFF/FFFF/FFFF
+
+URxvt.scrollBar: false
+
+URxvt.perl-ext-common: selection-to-clipboard,clipboard
+
+! Make Blue readble
+URxvt*color4:             #3465a4
+URxvt*color12:            #729fcf
