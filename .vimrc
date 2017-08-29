@@ -11,10 +11,12 @@ set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
-set noswapfile
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
+set hidden                      " Multiple buffer editing
 
 " Tab specific option
-set tabstop=4                   "A tab is 8 spaces
+set tabstop=4                   "A tab is 4 spaces
 set expandtab                   "Always uses spaces instead of tabs
 set softtabstop=4               "Insert 4 spaces when tab is pressed
 set smarttab
@@ -60,7 +62,7 @@ let g:hs_highlight_types = 1
 let g:hs_highlight_debug = 1
 let g:python_highlight_all = 1 " All python options
 
-" Make powerline look nicer
+" Make airline look nicer
 set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
 set noshowmode                  " Hide the default mode text
@@ -70,61 +72,49 @@ set noshowmode                  " Hide the default mode text
 """""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'xolox/vim-misc'
+
 Plug 'wikitopian/hardmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
+
+" Plug 'ryanoasis/vim-devicons' " Not working with URXVT config atm
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree',           {'on': ['NERDTreeToggle', 'NERDTree']}
-Plug 'ryanoasis/vim-devicons'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'w0rp/ale',                      {'for': ['haskell']} " Don't load if not configured
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Language support
-Plug 'vim-python/python-syntax',      {'for': ['python']} " Syntax
-Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Folding
-Plug 'neovimhaskell/haskell-vim'
+Plug 'autozimu/LanguageClient-neovim',{ 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
+
+Plug 'vim-python/python-syntax',      {'for': ['python']} " Python Syntax
+Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
+
+Plug 'urso/haskell_syntax.vim'
 
 call plug#end()
 
-" Powerline setup
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-" open a NERDTree automatically when vim starts up if no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" LSP
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ 'python': ['pyls']
+    \ }
 
 " auto hardmode
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()n
 
-" ALE
-let g:ale_lint_delay = 1000
-let g:ale_sign_column_always = 1 " b/c jumping text
-let g:ale_linters = { 'haskell' : ['hdevtools']}
-let g:ale_sign_error = "✗"
-let g:ale_sign_warning = "⚠"
+" Airline config
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = "minimalist"
 
 " CtrlP
 let g:ctrlp_extensions = ['tag']
 
 " Python stuff
-let g:python_highlight_all = 1 
+let g:python_highlight_all = 1
 let g:SimpylFold_fold_import = 0
-
-" haskell-vim
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-
-let g:haskell_indent_disable = 1          " don't need it
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
@@ -137,23 +127,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Open NERDTree
-:nnoremap <leader>n :NERDTreeToggle<CR> 
-
 " hardmode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
-" tagbar
-nnoremap <leader>t :TagbarToggle<CR>
 
 " numbertoggle
 let g:NumberToggleTrigger = "<leader>r"
 
-" ALE
-nnoremap <leader>s <Esc>:ALEToggle<CR>
-
 " :noh
 nnoremap <leader>u <Esc>:noh<CR>
 
-" make program
-nnoremap <leader>m <Esc>:wa<CR>:!make 
+" toggle paste mode
+nnoremap <leader>p <Esc>:set paste!<CR>
