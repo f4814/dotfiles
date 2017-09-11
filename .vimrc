@@ -78,7 +78,7 @@ Plug 'wikitopian/hardmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 
-" Plug 'ryanoasis/vim-devicons' " Not working with URXVT config atm
+Plug 'ryanoasis/vim-devicons' " Not working with URXVT config atm
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -100,6 +100,15 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'python': ['pyls']
     \ }
+
+let g:LanguageClient_changeThrottle = 0.5 " 0.5 Delay
+
+augroup LanguageClient_config
+    au!
+    " Kepp signcolumn open if LC is started
+    au User LanguageClientStarted setlocal signcolumn=yes
+    au User LanguageClientStopped setlocal signcolumn=auto
+augroup END
 
 " auto hardmode
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()n
