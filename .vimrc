@@ -1,11 +1,14 @@
 """"""""""""""""""
 "" BASIC OPTIONS "
 """"""""""""""""""
-set nocompatible                " No vi compatible
-filetype on
+if &compatible
+    set nocompatible                " No vi compatible
+endif
+
 set t_Co=256                    " 256-bit color
 set background=dark
 set ttimeoutlen=0               " No esc delay
+set timeoutlen=200              " wait 200ms
 set ic
 set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
@@ -16,7 +19,7 @@ set directory=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 
 " Tab specific option
-set tabstop=4                   "A tab is 4 spaces
+set tabstop=8                   "A tab is 4 spaces
 set expandtab                   "Always uses spaces instead of tabs
 set softtabstop=4               "Insert 4 spaces when tab is pressed
 set smarttab
@@ -48,13 +51,23 @@ set smartindent                 " be smart
 filetype plugin indent on
 
 """""""""""
+"" NeoVim "
+"""""""""""
+if has('nvim')
+    tnoremap <Esc><Esc> <C-w><C-\><C-n>
+endif
+
+"""""""""""
 "" LAYOUT "
 """""""""""
 set number                      " Show line numbers
-set encoding=utf8
+set encoding=utf-8
 
 " Syntax
-syntax on
+if !exists('g:syntax_on')
+    syntax on
+endif
+
 colorscheme jellybeans
 let g:hs_highlight_delimiters = 1
 let g:hs_highlight_boolean = 1
@@ -85,12 +98,12 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Language support
 Plug 'autozimu/LanguageClient-neovim',{ 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/echodoc.vim' " Required by LSP
 
-Plug 'vim-python/python-syntax',      {'for': ['python']} " Python Syntax
+Plug 'sheerun/vim-polyglot' " Language syntax
+Plug 'tomtom/tcomment_vim' " commenting
+
 Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
-
-Plug 'urso/haskell_syntax.vim'
 
 call plug#end()
 
