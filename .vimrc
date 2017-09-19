@@ -8,14 +8,13 @@ endif
 set t_Co=256                    " 256-bit color
 set background=dark
 set ttimeoutlen=0               " No esc delay
-set timeoutlen=200              " wait 200ms
-set ic
 set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
+set undodir=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 
 " Tab specific option
@@ -49,13 +48,6 @@ set wildmode=list,full          " Appereance of auto-complete window
 set autoindent                  " keep indentiation
 set smartindent                 " be smart
 filetype plugin indent on
-
-"""""""""""
-"" NeoVim "
-"""""""""""
-if has('nvim')
-    tnoremap <Esc><Esc> <C-w><C-\><C-n>
-endif
 
 """""""""""
 "" LAYOUT "
@@ -108,7 +100,6 @@ Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
 call plug#end()
 
 " LSP
-let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'python': ['pyls']
@@ -116,11 +107,26 @@ let g:LanguageClient_serverCommands = {
 
 let g:LanguageClient_changeThrottle = 0.5 " 0.5 Delay
 
+let g:LanguageClient_diagnosticsDisplay = {
+            \ 1: {
+            \     "name": "Error",
+            \     "texthl": "SyntasticError",
+            \     "signText": "✗",
+            \     "signTexthl": "Error",
+            \ },
+            \ 2: {
+            \     "name": "Warning",
+            \     "texthl": "SyntasticWarning",
+            \     "signText": "⚠",
+            \     "signTexthl": "SignWarning",
+            \ }
+            \ }
+
 augroup LanguageClient_config
     au!
     " Kepp signcolumn open if LC is started
     au User LanguageClientStarted setlocal signcolumn=yes
-    au User LanguageClientStopped setlocal signcolumn=auto
+    au User LanguageClientStopped setlocal signcolumn=no
 augroup END
 
 " auto hardmode
@@ -149,14 +155,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" hardmode
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" toggle editor settings
+nnoremap <leader>eh <Esc>:noh<CR>
+nnoremap <leader>ep <Esc>:set paste!<CR>
+let g:NumberToggleTrigger = "<leader>en"
 
-" numbertoggle
-let g:NumberToggleTrigger = "<leader>r"
 
-" :noh
-nnoremap <leader>u <Esc>:noh<CR>
+" toggle plugin settings
+nnoremap <leader>ph <Esc>:call ToggleHardMode()<CR>
+nnoremap <leader>pl <Esc>:LanguageClientStart<CR>
 
-" toggle paste mode
-nnoremap <leader>p <Esc>:set paste!<CR>
