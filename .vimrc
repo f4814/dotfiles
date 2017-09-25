@@ -88,46 +88,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Language support
-Plug 'autozimu/LanguageClient-neovim',{ 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/echodoc.vim' " Required by LSP
+Plug 'vimwiki/vimwiki'
 
+" Languages
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
 
 Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
 
 call plug#end()
-
-" LSP
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ 'python': ['pyls']
-    \ }
-
-let g:LanguageClient_changeThrottle = 0.5 " 0.5 Delay
-
-let g:LanguageClient_diagnosticsDisplay = {
-            \ 1: {
-            \     "name": "Error",
-            \     "texthl": "SyntasticError",
-            \     "signText": "✗",
-            \     "signTexthl": "Error",
-            \ },
-            \ 2: {
-            \     "name": "Warning",
-            \     "texthl": "SyntasticWarning",
-            \     "signText": "⚠",
-            \     "signTexthl": "SignWarning",
-            \ }
-            \ }
-
-augroup LanguageClient_config
-    au!
-    " Kepp signcolumn open if LC is started
-    au User LanguageClientStarted setlocal signcolumn=yes
-    au User LanguageClientStopped setlocal signcolumn=no
-augroup END
 
 " auto hardmode
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()n
@@ -163,5 +132,4 @@ let g:NumberToggleTrigger = "<leader>en"
 
 " toggle plugin settings
 nnoremap <leader>ph <Esc>:call ToggleHardMode()<CR>
-nnoremap <leader>pl <Esc>:LanguageClientStart<CR>
 
