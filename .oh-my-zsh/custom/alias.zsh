@@ -13,5 +13,4 @@ alias ":q"="exit"
 
 alias c="clear"
 
-alias vim='nvim'
 alias v='vim'
