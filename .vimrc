@@ -12,9 +12,9 @@ set vb                          " Don't beep at me
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
-set backupdir=~/.vim/backup/
-set directory=~/.vim/backup/
-set undodir=~/.vim/backup/
+set backupdir=~/.vim/backup/    "
+set directory=~/.vim/backup/    " Where to save swap files
+set undodir=~/.vim/backup/      " Persistent undo
 set hidden                      " Multiple buffer editing
 
 " Tab specific option
@@ -42,7 +42,7 @@ set splitright
 set wildmenu                    " Autocomplete paths
 set path+=**                    " Recursive path; Allows recursive :find
 set wildignore+=*/tmp/*,*.swp   " Ignore tmp and swp
-set wildmode=list,full          " Appereance of auto-complete window
+set wildmode=longest,full       " Appereance of auto-complete window
 
 " Indetiation
 set autoindent                  " keep indentiation
@@ -65,7 +65,6 @@ let g:hs_highlight_delimiters = 1
 let g:hs_highlight_boolean = 1
 let g:hs_highlight_types = 1
 let g:hs_highlight_debug = 1
-let g:python_highlight_all = 1 " All python options
 
 " Make airline look nicer
 set laststatus=2                " Always display the statusline in all windows
@@ -106,11 +105,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = "minimalist"
 
-" CtrlP
-let g:ctrlp_extensions = ['tag']
-
 " Python stuff
-let g:python_highlight_all = 1
 let g:SimpylFold_fold_import = 0
 
 """"""""""""""""""""
