@@ -81,6 +81,7 @@ Plug 'xolox/vim-misc'
 Plug 'wikitopian/hardmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'ryanoasis/vim-devicons' " Not working with URXVT config atm
 Plug 'ctrlpvim/ctrlp.vim'
@@ -107,6 +108,9 @@ let g:airline_theme = "minimalist"
 
 " Python stuff
 let g:SimpylFold_fold_import = 0
+
+" Editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
