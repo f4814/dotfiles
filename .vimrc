@@ -78,7 +78,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'xolox/vim-misc'
 
-Plug 'wikitopian/hardmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
@@ -97,9 +96,6 @@ Plug 'tomtom/tcomment_vim' " commenting
 Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
 
 call plug#end()
-
-" auto hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()n
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -127,8 +123,3 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>eh <Esc>:noh<CR>
 nnoremap <leader>ep <Esc>:set paste!<CR>
 let g:NumberToggleTrigger = "<leader>en"
-
-
-" toggle plugin settings
-nnoremap <leader>ph <Esc>:call ToggleHardMode()<CR>
-
