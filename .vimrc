@@ -123,3 +123,4 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>eh <Esc>:noh<CR>
 nnoremap <leader>ep <Esc>:set paste!<CR>
 let g:NumberToggleTrigger = "<leader>en"
+nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
