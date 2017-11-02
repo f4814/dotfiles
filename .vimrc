@@ -105,6 +105,10 @@ let g:airline_theme = "minimalist"
 " Python stuff
 let g:SimpylFold_fold_import = 0
 
+" Haskell stuff
+let haskell_indent_case = 4
+let hasekll_indent_guard = 4
+
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
 
