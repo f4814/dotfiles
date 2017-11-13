@@ -90,6 +90,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
 
 " Languages
+Plug 'w0rp/ale' " Linting
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
 
@@ -100,7 +101,20 @@ call plug#end()
 " Airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = "minimalist"
+
+" ALE Config
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_set_loclist = 1
+let g:ale_sign_column_always = 1
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_linters = {
+\   'haskell': ['stack-build', 'stack-ghc'],
+\   'python': ['flake8']
+\}
 
 " Python stuff
 let g:SimpylFold_fold_import = 0
@@ -129,3 +143,8 @@ nnoremap <leader>ep <Esc>:set paste!<CR>
 nnoremap <leader>es <Esc>:set spell!<CR>
 let g:NumberToggleTrigger = "<leader>en"
 nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
+nnoremap <leader>el <Esc>:lopen<CR>
+nnoremap <leader>elc <Esc>:lclose<CR>
+
+" Pluging
+nnoremap <leader>pc <Esc>:ALELint<CR>
