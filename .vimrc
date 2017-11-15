@@ -141,7 +141,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>eh <Esc>:noh<CR>
 nnoremap <leader>ep <Esc>:set paste!<CR>
 nnoremap <leader>es <Esc>:set spell!<CR>
-let g:NumberToggleTrigger = "<leader>en"
+nnoremap <leader>en <Esc>:set relativenumber!<CR>
 nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
 nnoremap <leader>el <Esc>:lopen<CR>
 nnoremap <leader>elc <Esc>:lclose<CR>
