@@ -8,7 +8,12 @@ export PATH=~/anaconda3/bin:$PATH
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="robbyrussell"
+if [ $(hostname) != "FABIANS-XPS13" ]
+then
+    ZSH_THEME="gianu"
+else
+    ZSH_THEME="robbyrussell"
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
