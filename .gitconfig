@@ -5,4 +5,11 @@
 [alias]
     pl = pull --rebase
     p = push
-    
+    s = status
+    d = difftool
+    a = add
+    c = commit
+[diff]
+	tool = vimdiff
+[core]
+	excludesfile = ~/.cvsignore
