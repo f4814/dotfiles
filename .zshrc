@@ -10,7 +10,7 @@ export PATH=~/anaconda3/bin:$PATH
 # ZSH_THEME="robbyrussell"
 if [ $(hostname) != "FABIANS-XPS13" ]
 then
-    ZSH_THEME="gianu"
+    ZSH_THEME="gentoo"
 else
     ZSH_THEME="robbyrussell"
 fi
