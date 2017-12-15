@@ -1,0 +1,38 @@
+-
+  name: vim
+  files:
+    vimrc:
+      - ~/.vimrc
+  folders:
+    vim:
+      - ~/.vim
+  postconf_hook:
+    - post-install-hook.sh
+-
+  name: tmux
+  files:
+    tmux.conf:
+      - ~/.tmux.conf
+-
+  name: zsh
+  files:
+    zshrc:
+      - ~/.zshrc
+  folders:
+    zsh:
+      - ~/.zsh
+-
+  name: git
+  files:
+    gitconfig:
+      - ~/.gitconfig
+
+# name: program + folder
+# files:
+#   file_in_folder:
+#       - target files
+# folders:
+#   folder_in_folder:
+#       - target folder
+# preconf_hook: script_in_Folder
+# postconf_hook: script_in_folder

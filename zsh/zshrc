@@ -1,0 +1,12 @@
+# TODO:
+# * Prompt
+# * FIX PATH
+# * Arrow complete
+# * Fancy functions
+source ~/.zsh/checks.sh
+source ~/.zsh/opts.sh
+source ~/.zsh/exports.sh
+source ~/.zsh/functions.sh
+source ~/.zsh/keys.sh
+source ~/.zsh/prompt.sh
+source ~/.zsh/alias.sh

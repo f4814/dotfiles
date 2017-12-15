@@ -1,0 +1,15 @@
+[user]
+	email = me@f4814n.de
+	name = Fabian Geiselhart
+
+[alias]
+    pl = pull --rebase
+    p = push
+    s = status
+    d = difftool
+    a = add
+    c = commit -S
+[diff]
+	tool = vimdiff
+[core]
+	excludesfile = ~/.cvsignore
