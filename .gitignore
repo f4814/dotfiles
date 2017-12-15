@@ -1,2 +1,6 @@
-old-dotfiles/*
-old-dotfiles
+*/old
+
+# Vim
+vim/vim/autoload
+vim/vim/plugged
+vim/vim/backup
