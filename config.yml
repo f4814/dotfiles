@@ -26,6 +26,11 @@
   files:
     gitconfig:
       - ~/.gitconfig
+-
+  name: termite
+  files:
+    config:
+      - ~/.config/termite/config
 
 # name: program + folder
 # files:
