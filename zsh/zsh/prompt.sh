@@ -10,13 +10,14 @@ function machine_info {
 }
 
 function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(rprompt) $EPS1"
+    VIM_NORMAL="%B%F{blue} [% NORMAL]% %f%b"
+    VIM_INSERT="%B%F{green} [% INSERT]% %f%b"
+    RPS1="$(rprompt) ${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
     zle reset-prompt
 }
 
 function rprompt {
-    echo "$(git_info)"
+    echo "%B$(git_info)%b"
 }
 
 # GIT INFO
@@ -26,11 +27,11 @@ function git_branch() {
 
 function git_info() {
     if [[ -n $(git diff --name-only --staged 2> /dev/null) ]]; then
-        echo '%F{green}$(git_branch)%f'
+        echo '%F{green}[$(git_branch)]%f'
     elif [[ -n $(git ls-files --modified 2> /dev/null) ]]; then
-        echo '%F{magenta}$(git_branch)%f'
-    else
-        echo '$(git_branch)'
+        echo '%F{magenta}[$(git_branch)]%f'
+    elif [[ -n $(git status 2> /dev/null) ]]; then
+        echo '[$(git_branch)]'
     fi
 }
 

@@ -15,6 +15,8 @@ setopt append_history # Multiple sessions to one history
 setopt inc_append_history # Add when command is typed
 setopt hist_ignore_dups # No dups in history
 setopt hist_reduce_blanks # Delete unneccessary blanks
+HISTSIZE=100000
+SAVEHIST=900000
 HISTFILE=~/.zsh_history
 
 ################

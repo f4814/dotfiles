@@ -1,7 +1,10 @@
 # History
-bindkey '^r' history-incremental-search-backward
-bindkey '[A' history-search-backward
-bindkey '[B' history-search-forward
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 # backspace and ^h working even after
 # returning from command mode
