@@ -60,12 +60,6 @@ if !exists('g:syntax_on')
     syntax on
 endif
 
-colorscheme monokai-phoenix
-let g:hs_highlight_delimiters = 1
-let g:hs_highlight_boolean = 1
-let g:hs_highlight_types = 1
-let g:hs_highlight_debug = 1
-
 " Make airline look nicer
 set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
@@ -77,6 +71,7 @@ set noshowmode                  " Hide the default mode text
 call plug#begin('~/.vim/plugged')
 
 Plug 'xolox/vim-misc'
+Plug 'FabianGeiselhart/vim-monokai-phoenix'
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
@@ -97,6 +92,9 @@ Plug 'tomtom/tcomment_vim' " commenting
 Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
 
 call plug#end()
+
+" Color
+colorscheme monokai-phoenix
 
 " Airline config
 let g:airline_powerline_fonts = 1
