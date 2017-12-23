@@ -110,9 +110,9 @@ let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_linters = {
-\   'haskell': ['stack-build', 'stack-ghc'],
-\   'python': ['flake8']
-\}
+    \   'haskell': ['stack-build'],
+    \   'python': ['flake8']
+    \}
 
 " Python stuff
 let g:SimpylFold_fold_import = 0
