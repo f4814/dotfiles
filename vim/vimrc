@@ -1,4 +1,4 @@
-""""""""""""""""""
+""""""""""""""""
 "" BASIC OPTIONS "
 """"""""""""""""""
 if &compatible
@@ -76,8 +76,9 @@ Plug 'FabianGeiselhart/vim-monokai-phoenix'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
 
-Plug 'ryanoasis/vim-devicons' " Not working with URXVT config atm
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
