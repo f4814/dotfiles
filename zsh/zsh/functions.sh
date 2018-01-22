@@ -12,6 +12,7 @@ ex() {
           *.bz2) bunzip $1;;
           *.rar) unrar $1;;
           *.gz) gunzip $1;;
+          *.xz) xz -d $1;;
           *.tar) tar xvf $1;;
           *.tbz2) tar xvjf $1;;
           *.tgz) tar xvzf $1;;

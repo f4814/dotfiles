@@ -12,6 +12,9 @@ alias g='git'
 alias yrt='yaourt'
 alias pcm='pacman'
 
+#sudo
+alias sry='sudo $(fc -ln -1)'
+
 alias q="exit"
 alias ":q"="exit"
 alias c="clear"
