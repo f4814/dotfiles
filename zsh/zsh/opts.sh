@@ -25,6 +25,7 @@ unsetopt menu_complete
 setopt auto_menu # Show menu on multiple tabs. Requires above
 setopt complete_in_word # Completion within a word
 setopt COMPLETE_ALIASES
+setopt GLOB_COMPLETE
 
 ################
 ## Correction ##
