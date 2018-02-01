@@ -20,6 +20,8 @@ alias ":q"="exit"
 alias c="clear"
 alias v='vim'
 
+alias md5rec="find . -type f -exec md5sum {} +"
+
 
 ##########################################################################
 ## Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh ##
