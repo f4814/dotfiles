@@ -5,8 +5,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 
-#git
 alias g='git'
+alias s='stack'
 
 #package management
 alias yrt='yaourt'
