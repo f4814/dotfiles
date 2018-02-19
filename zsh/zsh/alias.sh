@@ -22,6 +22,8 @@ alias v='vim'
 
 alias md5rec="find . -type f -exec md5sum {} +"
 
+alias lhoogle="stack exec hoogle -- server --port 8080 --local > /dev/null &"
+
 
 ##########################################################################
 ## Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh ##
