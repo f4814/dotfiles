@@ -65,6 +65,8 @@ set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
 set noshowmode                  " Hide the default mode text
 
+set signcolumn="yes"            " Always show signcolumn
+
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
@@ -77,6 +79,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
+Plug 'kshenoy/vim-signature'
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -84,6 +87,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vimwiki/vimwiki'
+
+Plug 'rhysd/vim-grammarous', {'on': ['GrammarousCheck'] }
 
 " Languages
 Plug 'w0rp/ale' " Linting
@@ -126,10 +131,14 @@ let haskell_indent_if = 4
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
 
+" Grammarous
+let g:grammarous#use_vim_spelllang = 1
+
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
 """"""""""""""""""""
 let mapleader = ","
+let maplocalleader = " "
 
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
@@ -139,12 +148,27 @@ nnoremap <C-H> <C-W><C-H>
 
 " toggle editor settings
 nnoremap <leader>eh <Esc>:noh<CR>
-nnoremap <leader>ep <Esc>:set paste!<CR>
-nnoremap <leader>es <Esc>:set spell!<CR>
-nnoremap <leader>en <Esc>:set relativenumber!<CR>
+nnoremap <leader>ep <Esc>:setlocal paste!<CR>
+nnoremap <leader>es <Esc>:setlocal spelllang=
+nnoremap <leader>en <Esc>:setlocal relativenumber!<CR>
 nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
 nnoremap <leader>el <Esc>:lopen<CR>
 nnoremap <leader>elc <Esc>:lclose<CR>
 
-" Pluging
+" Plugins
 nnoremap <leader>pc <Esc>:ALELint<CR>
+
+let g:grammarous#hooks = {}
+function! g:grammarous#hooks.on_check(errs) abort
+    nmap <buffer><localleader>n <Plug>(grammarous-move-to-next-error)
+    nmap <buffer><localleader>p <Plug>(grammarous-move-to-previous-error)
+    nmap <buffer><localleader>f <Plug>(grammarous-fixit)
+    nmap <buffer><localleader>r <Plug>(grammarous-remove-error)
+endfunction
+
+function! g:grammarous#hooks.on_reset(errs) abort
+    nunmap <buffer><localleader>n
+    nunmap <buffer><localleader>p
+    nunmap <buffer><localleader>f
+    nunmap <buffer><localleader>r
+endfunction
