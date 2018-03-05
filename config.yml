@@ -21,6 +21,8 @@
   folders:
     zsh:
       - ~/.zsh
+    preconf_hook:
+      - pre-install-hook.sh
 -
   name: git
   files:
