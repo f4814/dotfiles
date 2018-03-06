@@ -33,6 +33,16 @@
   files:
     config:
       - ~/.config/termite/config
+-
+  name: mpd
+  files:
+    mpd.conf:
+      - ~/.config/mpd/mpd.conf
+-
+  name: ncmpcpp
+  files:
+    config:
+      - ~/.ncmpcpp/config
 
 # name: program + folder
 # files:
