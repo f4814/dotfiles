@@ -1,31 +1,33 @@
-#ls
+# ls
 alias l="ls --color=auto"
 alias ls="ls --color=auto"
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 
+# development
 alias g='git'
-alias s='stack'
 
-#package management
-alias yrt='yaourt'
+alias s='stack'
+alias lhoogle="stack exec hoogle -- server --port 8080 --local > /dev/null &"
+
+alias vfg="fg %vim"
+
+# package management
+alias tri='trizen'
 alias pcm='pacman'
 
-#sudo
+# sudo
 alias sry='sudo $(fc -ln -1)'
 
+# exit
 alias q="exit"
 alias ":q"="exit"
 alias c="clear"
 alias v='vim'
 
 alias md5rec="find . -type f -exec md5sum {} +"
-
-alias lhoogle="stack exec hoogle -- server --port 8080 --local > /dev/null &"
-
-alias vfg="fg %vim"
-
+alias ccat='pygmentize -g'
 
 ##########################################################################
 ## Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh ##
