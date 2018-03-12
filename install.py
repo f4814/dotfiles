@@ -19,18 +19,19 @@ def install(info):
             print(cmd)
             os.system(cmd)
 
-    files = info['files']
-    for i in files.keys():
-        origin = directory + i
-        target = files[i]
-        for j in target:
-            if os.path.isfile(expanduser(j)):
-                cmd = "mv -f " + expanduser(j) + " " + abspath(directory + "old")
+    if 'files' in info:
+        files = info['files']
+        for i in files.keys():
+            origin = directory + i
+            target = files[i]
+            for j in target:
+                if os.path.isfile(expanduser(j)):
+                    cmd = "mv -f " + expanduser(j) + " " + abspath(directory + "old")
+                    print(cmd)
+                    os.system(cmd)
+                cmd = "ln " + abspath(origin) + " " + expanduser(j)
                 print(cmd)
                 os.system(cmd)
-            cmd = "ln " + abspath(origin) + " " + expanduser(j)
-            print(cmd)
-            os.system(cmd)
 
     if 'folders' in info:
         folders = info['folders']
