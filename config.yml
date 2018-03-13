@@ -40,9 +40,14 @@
       - ~/.config/mpd/mpd.conf
 -
   name: ncmpcpp
-  files:
-    config:
-      - ~/.ncmpcpp/config
+  folders:
+    ncmpcpp:
+      - ~/.ncmpcpp
+-
+  name: sway
+  folders:
+    sway:
+      - ~/.config/sway
 
 # name: program + folder
 # files:
