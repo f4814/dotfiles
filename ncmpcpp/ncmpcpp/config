@@ -1,4 +1,4 @@
-mpd_host = "::"
+mpd_host = "::1"
 
 lyrics_directory = ~/Music/lyrics
 
