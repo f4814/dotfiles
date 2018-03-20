@@ -82,7 +82,8 @@ Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
 Plug 'kshenoy/vim-signature'
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-vinegar'
@@ -102,6 +103,9 @@ call plug#end()
 
 " Color
 colorscheme monokai-phoenix
+
+" FZF
+let g:fzf_buffers_jump = 0 " Always open new window
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -158,6 +162,9 @@ nnoremap <leader>elc <Esc>:lclose<CR>
 
 " Plugins
 nnoremap <leader>pc <Esc>:ALELint<CR>
+
+" FZF
+nnoremap <C-p> :FZF<CR>
 
 let g:grammarous#hooks = {}
 function! g:grammarous#hooks.on_check(errs) abort
