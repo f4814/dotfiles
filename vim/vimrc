@@ -81,11 +81,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
 Plug 'kshenoy/vim-signature'
 
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-vinegar'
 
 Plug 'vimwiki/vimwiki'
@@ -96,7 +94,6 @@ Plug 'rhysd/vim-grammarous', {'on': ['GrammarousCheck'] }
 Plug 'w0rp/ale' " Linting
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
-
 Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
 
 call plug#end()
@@ -107,11 +104,8 @@ colorscheme monokai-phoenix
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
 
-" Airline config
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline_theme = "serene"
+" lightline config
+let g:lightline = { 'colorscheme': 'molokai' }
 
 " ALE Config
 let g:ale_lint_on_text_changed = 'never'
