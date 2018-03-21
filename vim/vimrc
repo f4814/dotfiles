@@ -67,32 +67,41 @@ set noshowmode                  " Hide the default mode text
 
 set signcolumn="yes"            " Always show signcolumn
 
+""""""""""""
+"" SCRIPTS "
+""""""""""""
+augroup Numbers " Toggle relative numbers
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
+augroup END
+
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" Misc
 Plug 'xolox/vim-misc'
-Plug 'FabianGeiselhart/vim-monokai-phoenix'
+Plug 'vimwiki/vimwiki'
 
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" UI
+Plug 'FabianGeiselhart/vim-monokai-phoenix'
+Plug 'kshenoy/vim-signature'
+Plug 'itchyny/lightline.vim'
+
+" Edit
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
-Plug 'kshenoy/vim-signature'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-vinegar'
-
-Plug 'vimwiki/vimwiki'
 
 " Languages
 Plug 'w0rp/ale' " Linting
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
-Plug 'tmhedberg/SimpylFold',          {'for': ['python']} " Python Folding
+Plug 'tmhedberg/SimpylFold', {'for': ['python']} " Python Folding
 
 call plug#end()
 
@@ -101,6 +110,7 @@ colorscheme monokai-phoenix
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
+let g:fzf_command_prefix = 'FZF' " Enable all FZF commands
 let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -169,17 +179,3 @@ nnoremap <leader>pc <Esc>:ALELint<CR>
 " FZF
 nnoremap <C-p> :FZF<CR>
 
-let g:grammarous#hooks = {}
-function! g:grammarous#hooks.on_check(errs) abort
-    nmap <buffer><localleader>n <Plug>(grammarous-move-to-next-error)
-    nmap <buffer><localleader>p <Plug>(grammarous-move-to-previous-error)
-    nmap <buffer><localleader>f <Plug>(grammarous-fixit)
-    nmap <buffer><localleader>r <Plug>(grammarous-remove-error)
-endfunction
-
-function! g:grammarous#hooks.on_reset(errs) abort
-    nunmap <buffer><localleader>n
-    nunmap <buffer><localleader>p
-    nunmap <buffer><localleader>f
-    nunmap <buffer><localleader>r
-endfunction
