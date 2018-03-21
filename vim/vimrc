@@ -88,8 +88,6 @@ Plug 'tpope/vim-vinegar'
 
 Plug 'vimwiki/vimwiki'
 
-Plug 'rhysd/vim-grammarous', {'on': ['GrammarousCheck'] }
-
 " Languages
 Plug 'w0rp/ale' " Linting
 Plug 'sheerun/vim-polyglot' " Language syntax
@@ -103,6 +101,20 @@ colorscheme monokai-phoenix
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
+let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " lightline config
 let g:lightline = { 'colorscheme': 'molokai' }
@@ -129,9 +141,6 @@ let haskell_indent_if = 4
 
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
-
-" Grammarous
-" let g:grammarous#use_vim_spelllang = 1
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
