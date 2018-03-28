@@ -9,6 +9,7 @@
     d = difftool
     a = add
     c = commit -S
+    st = stash
 [diff]
 	tool = vimdiff
 [core]
