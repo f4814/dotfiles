@@ -9,6 +9,7 @@
     d = difftool
     a = add
     c = commit -S
+    ch = checkout
     st = stash
     b = branch
 [diff]
