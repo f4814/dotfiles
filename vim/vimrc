@@ -184,5 +184,5 @@ nnoremap <leader>elc <Esc>:lclose<CR>
 nnoremap <leader>pc <Esc>:ALELint<CR>
 
 " FZF
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-t> :FZF<CR>
 
