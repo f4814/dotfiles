@@ -1,53 +1,95 @@
--
-  name: vim
+- name: vim
   files:
     vimrc:
       - ~/.vimrc
   folders:
     vim:
       - ~/.vim
+  depends:
+    default:
+      - vim
+      - fzf
   postconf_hook:
     - post-install-hook.sh
--
-  name: tmux
+
+- name: tmux
   files:
     tmux.conf:
       - ~/.tmux.conf
--
-  name: zsh
+  depends:
+    default: tmux
+
+- name: zsh
   files:
     zshrc:
       - ~/.zshrc
   folders:
     zsh:
       - ~/.zsh
-    preconf_hook:
-      - pre-install-hook.sh
--
-  name: git
+  depends:
+    default:
+      - zsh
+      - zsh-syntax-highlighting
+      - fzf
+
+- name: git
+  depends:
+    default: git
   files:
     gitconfig:
       - ~/.gitconfig
--
-  name: termite
+
+- name: termite
+  depends:
+    default: termite
   files:
     config:
       - ~/.config/termite/config
--
-  name: mpd
+
+- name: mpd
+  depends:
+    default:
+      - mpd
+      - mpc
   files:
     mpd.conf:
       - ~/.config/mpd/mpd.conf
--
-  name: ncmpcpp
+
+- name: ncmpcpp
+  depends:
+    default: ncmpcpp
   folders:
     ncmpcpp:
       - ~/.ncmpcpp
--
-  name: sway
+
+- name: sway
+  depends:
+    default:
+      - sway
+      - pamixer
   folders:
     sway:
       - ~/.config/sway
+
+- name: system
+  depends:
+    default:
+      - asciiquarium
+      - audacity
+      - calibre
+      - chromium
+      - cmatrix
+      - cowsay
+      - firefox
+      - gimp
+      - htop
+      - libreoffice-fresh
+      - libreoffice-fresh-de
+      - libreoffice-fresh-en-gb
+      - mcomix
+      - mpv
+      - vlc
+      - zathura
 
 # name: program + folder
 # files:
@@ -56,5 +98,10 @@
 # folders:
 #   folder_in_folder:
 #       - target folder
+# depends:
+#   default:
+#       - names
+#   distro:
+#       - names
 # preconf_hook: script_in_Folder
 # postconf_hook: script_in_folder
