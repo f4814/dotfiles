@@ -1,31 +1,16 @@
 - name: vim
-  files:
-    vimrc:
-      - ~/.vimrc
-  folders:
-    vim:
-      - ~/.vim
   depends:
     default:
       - vim
       - fzf
   postconf_hook:
-    - post-install-hook.sh
+    - vim-post-install.sh
 
 - name: tmux
-  files:
-    tmux.conf:
-      - ~/.tmux.conf
   depends:
     default: tmux
 
 - name: zsh
-  files:
-    zshrc:
-      - ~/.zshrc
-  folders:
-    zsh:
-      - ~/.zsh
   depends:
     default:
       - zsh
@@ -35,41 +20,26 @@
 - name: git
   depends:
     default: git
-  files:
-    gitconfig:
-      - ~/.gitconfig
 
 - name: termite
   depends:
     default: termite
-  files:
-    config:
-      - ~/.config/termite/config
 
 - name: mpd
   depends:
     default:
       - mpd
       - mpc
-  files:
-    mpd.conf:
-      - ~/.config/mpd/mpd.conf
 
 - name: ncmpcpp
   depends:
     default: ncmpcpp
-  folders:
-    ncmpcpp:
-      - ~/.ncmpcpp
 
 - name: sway
   depends:
     default:
       - sway
       - pamixer
-  folders:
-    sway:
-      - ~/.config/sway
 
 - name: system
   depends:
@@ -92,12 +62,6 @@
       - zathura
 
 # name: program + folder
-# files:
-#   file_in_folder:
-#       - target files
-# folders:
-#   folder_in_folder:
-#       - target folder
 # depends:
 #   default:
 #       - names

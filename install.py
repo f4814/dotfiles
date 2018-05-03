@@ -32,9 +32,11 @@ def runCmd(cmd, dryRun):
         os.system(cmd)
 
 
-def install(info, arch, dryRun):
-    directory = "./" + info['name'] + "/"
-    runCmd("mkdir " + directory + "old 2> /dev/null", dryRun)
+def install(info, arch, target, dryRun):
+    if 'preconf_hook' in info:
+        for i in info['preconf_hook']:
+            cmd = "sh " + "scripts/" + i
+            runCmd(cmd, dryRun)
 
     if 'depends' in info:
         precmd = "sudo " + installer[arch] + " "
@@ -51,41 +53,13 @@ def install(info, arch, dryRun):
 
         runCmd(precmd + pkgs, dryRun)
 
-    if 'preconf_hook' in info:
-        for i in info['preconf_hook']:
-            cmd = "sh " + directory + i
-            runCmd(cmd, dryRun)
+    cmd = "stow -t " + target + " " + info['name']
+    runCmd(cmd, dryRun)
 
-    if 'files' in info:
-        files = info['files']
-        for i in files.keys():
-            origin = directory + i
-            target = files[i]
-            for j in target:
-                if os.path.isfile(expanduser(j)):
-                    cmd = "mv -f " + expanduser(j) + " " + abspath(directory + "old")
-                    runCmd(cmd, dryRun)
-                cmd = "ln " + abspath(origin) + " " + expanduser(j)
-                runCmd(cmd, dryRun)
-
-    if 'folders' in info:
-        folders = info['folders']
-        for i in folders.keys():
-            origin = directory + i
-            target = folders[i]
-            for j in target:
-                if os.path.isdir(expanduser(j)):
-                    cmd = "mv -f " + expanduser(j) + " " + abspath(directory + "old/")
-                    runCmd(cmd, dryRun)
-                if os.path.islink(expanduser(j)):
-                    cmd = "rm " + expanduser(j)
-                    runCmd(cmd, dryRun)
-                cmd = "ln -s " + abspath(origin) + " " + expanduser(j)
-                runCmd(cmd, dryRun)
 
     if 'postconf_hook' in info:
         for i in info['postconf_hook']:
-            cmd = "bash " + directory + i
+            cmd = "sh " + "scripts/" + i
             runCmd(cmd, dryRun)
 
 
@@ -94,13 +68,14 @@ if __name__ == "__main__":
     dryRun = False
     programs = []
     arch = ""
+    target = expanduser("~")
 
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:],
-                                       "dp:a:",
-                                       ["dryRun", "program=", "arch="])
+                                       "dp:a:t:",
+                                       ["dryRun", "program=", "arch=", "target="])
     except getopt.GetoptError:
-        print("usage: -d [--dryRun]: dont really copy\n -p [--program] prog: install program")
+        print("usage: -d [--dryRun]: dont really copy\n -p [--program] prog: install program\n -t [--target] dir: where to install [default = ~]")
         sys.exit()
 
     for opt, arg in opts:
@@ -110,9 +85,11 @@ if __name__ == "__main__":
             programs.append(arg)
         if opt in ("-a", "--arch"):
             arch = arg
+        if opt in ("-t", "--target"):
+            target = expanduser(arch)
         else:
             arch = getOS()
 
     for i in data:
         if i['name'] in programs or 'all' in programs:
-            install(i, arch, dryRun)
+            install(i, arch, target, dryRun)

@@ -4,8 +4,8 @@
 ncmpcpp/ncmpcpp/error.log
 
 # Vim
-vim/vim/autoload
-vim/vim/plugged
-vim/vim/backup
-vim/vim/.netrwhist
-vim/vim/spell
+vim/.vim/autoload
+vim/.vim/plugged
+vim/.vim/backup
+vim/.vim/.netrwhist
+vim/.vim/spell
