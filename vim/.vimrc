@@ -5,7 +5,6 @@ if &compatible
     set nocompatible                " No vi compatible
 endif
 
-set t_Co=256                    " 256-bit color
 set background=dark
 set ttimeoutlen=0               " No esc delay
 set vb                          " Don't beep at me
@@ -19,7 +18,7 @@ set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
 
 " Tab specific option
-set tabstop=8                   "A tab is 4 spaces
+set tabstop=8                   "A tab is 8 spaces
 set expandtab                   "Always uses spaces instead of tabs
 set softtabstop=4               "Insert 4 spaces when tab is pressed
 set smarttab
@@ -31,9 +30,6 @@ set hlsearch                    " Highlight my search
 set incsearch                   " Incremental
 set ignorecase
 set smartcase                   " Don't ignore uppercase
-
-" Allow saving files as sudo
-cmap w!! w !sudo tee > /dev/null %<CR>
 
 " Natural splits
 set splitbelow
@@ -77,6 +73,26 @@ augroup Numbers " Toggle relative numbers
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
 augroup END
 
+augroup Goyo
+    autocmd! User GoyoEnter nested call <SID>goyoEnter()
+    autocmd! User GoyoLeave nested call <SID>goyoLeave()
+augroup END
+
+
+function! s:goyoEnter()
+    set nocursorline
+    set nocursorcolumn
+    set textwidth=80
+    Limelight
+endfunction
+
+function! s:goyoLeave()
+    set cursorcolumn
+    set cursorline
+    set textwidth=0
+    Limelight!
+endfunction
+
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
@@ -97,6 +113,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim', {'on': ['Goyo'] }
+Plug 'junegunn/limelight.vim', {'on': ['Goyo', 'Limelight'] }
 
 " Languages
 Plug 'w0rp/ale' " Linting
@@ -158,6 +176,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever
 """"""""""""""""""""
 let mapleader = ","
 let maplocalleader = " "
+
+" Allow saving files as sudo
+cmap w!! w !sudo tee > /dev/null %<CR>
 
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
