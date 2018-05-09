@@ -7,7 +7,7 @@ endif
 
 set background=dark
 set ttimeoutlen=0               " No esc delay
-set vb                          " Don't beep at me
+set novisualbell                " Don't do visual bells
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
@@ -51,13 +51,14 @@ filetype plugin indent on
 """""""""""
 set number                      " Show line numbers
 set encoding=utf-8
+set fillchars="vert:|"            " Use pipes in vertical borders
 
 " Syntax
 if !exists('g:syntax_on')
     syntax on
 endif
 
-" Make airline look nicer
+" Make lightline look nicer
 set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
 set noshowmode                  " Hide the default mode text
@@ -104,6 +105,8 @@ Plug 'vimwiki/vimwiki'
 
 " UI
 Plug 'FabianGeiselhart/vim-monokai-phoenix'
+Plug 'FabianGeiselhart/vim-termscheme'
+Plug 'vietjtnguyen/toy-blocks'
 Plug 'kshenoy/vim-signature'
 Plug 'itchyny/lightline.vim'
 
@@ -125,7 +128,7 @@ Plug 'tmhedberg/SimpylFold', {'for': ['python']} " Python Folding
 call plug#end()
 
 " Color
-colorscheme monokai-phoenix
+colorscheme termscheme
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
