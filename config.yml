@@ -19,7 +19,9 @@
 
 - name: git
   depends:
-    default: git
+    default:
+      - git
+      - vim
 
 - name: termite
   depends:
