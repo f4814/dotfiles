@@ -121,6 +121,7 @@ Plug 'junegunn/limelight.vim', {'on': ['Goyo', 'Limelight'] }
 
 " Languages
 Plug 'w0rp/ale' " Linting
+Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
 Plug 'tmhedberg/SimpylFold', {'for': ['python']} " Python Folding
