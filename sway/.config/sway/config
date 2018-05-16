@@ -13,7 +13,7 @@ set $menu dmenu_run
 ## I/O ##
 #########
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output EDP-1 scale 2
+output * scale 2
 
 ############
 ## Layout ##
