@@ -43,6 +43,10 @@
       - sway
       - pamixer
 
+- name: ranger
+  depends:
+    default:
+      - ranger
 - name: system
   depends:
     default:

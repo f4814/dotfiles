@@ -9,3 +9,9 @@ vim/.vim/plugged
 vim/.vim/backup
 vim/.vim/.netrwhist
 vim/.vim/spell
+
+# ranger
+ranger/.config/ranger/bookmarks
+ranger/.config/ranger/history
+ranger/.config/ranger/tagged
+ranger/.config/ranger/scope.sh
