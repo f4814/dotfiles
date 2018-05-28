@@ -9,6 +9,7 @@ vim/.vim/plugged
 vim/.vim/backup
 vim/.vim/.netrwhist
 vim/.vim/spell
+vim/.vim/sessions
 
 # ranger
 ranger/.config/ranger/bookmarks
