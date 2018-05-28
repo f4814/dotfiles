@@ -40,7 +40,7 @@ background      = rgba(00, 00, 00, 0.8)
 
 # black
 color0  = #000000
-color8  = #38252c
+color8  = #333333
 
 # red
 color1  = #d81765
@@ -67,7 +67,7 @@ color6  = #11f2c9
 color14 = #0ec9a7
 
 # white
-color7  = #ebebeb
+color7  = #4b4b4b
 color15 = #f8f8f8
 
 [hints]
