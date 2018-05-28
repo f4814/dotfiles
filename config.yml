@@ -47,6 +47,7 @@
   depends:
     default:
       - ranger
+      - atool
 - name: system
   depends:
     default:
