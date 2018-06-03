@@ -6,6 +6,19 @@ source ~/.zsh/functions.sh
 source ~/.zsh/keys.sh
 source ~/.zsh/prompt.sh
 source ~/.zsh/alias.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    echo "Zsh sytax highlight missing"
+fi
+
+if [ -f /usr/share/fzf/completion.zsh ] && [ -f /usr/share/fzf/key-bindings.zsh ]
+then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+else
+    echo "fzf not installed"
+fi
+
