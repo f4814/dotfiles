@@ -103,6 +103,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'xolox/vim-misc'
 Plug 'vimwiki/vimwiki'
 
+" Core
+Plug 'xolox/vim-session'
+Plug 'mileszs/ack.vim'
+
 " UI
 Plug 'FabianGeiselhart/vim-monokai-phoenix'
 Plug 'FabianGeiselhart/vim-termscheme'
@@ -130,6 +134,16 @@ call plug#end()
 
 " Color
 colorscheme termscheme
+
+" Sessions
+let g:session_directory = '~/.vim/sessions'
+let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
+
+" Ag
+if executable('ag')
+    let g:ackprg = "ag --vimgrep"
+endif
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
@@ -210,4 +224,3 @@ nnoremap <leader>pc <Esc>:ALELint<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>
-
