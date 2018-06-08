@@ -13,7 +13,8 @@ set cursorcolumn                " Highlight current column
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
 set backupdir=~/.vim/backup/    "
 set directory=~/.vim/backup/    " Where to save swap files
-set undodir=~/.vim/backup/      " Persistent undo
+set undofile                    " Persistent undo
+set undodir=~/.vim/backup/      
 set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
 
