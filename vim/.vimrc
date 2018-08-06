@@ -14,7 +14,7 @@ set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bott
 set backupdir=~/.vim/backup/    "
 set directory=~/.vim/backup/    " Where to save swap files
 set undofile                    " Persistent undo
-set undodir=~/.vim/backup/      
+set undodir=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
 
@@ -95,6 +95,17 @@ function! s:goyoLeave()
     Limelight!
 endfunction
 
+" Modify errorformat to ignore all unmatched lines
+function! IgnoreEmptyQuickfix()
+    set errorformat+=%-G%.%#
+endfunction
+
+" Modify current compiler to be compatible with ninja
+function! NinjaInit()
+    set makeprg=ninja\ -C\ build
+    set errorformat+=%Dninja:\ Entering\ directory\ `%f'
+endfunction
+
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
@@ -109,8 +120,7 @@ Plug 'xolox/vim-session'
 Plug 'mileszs/ack.vim'
 
 " UI
-Plug 'FabianGeiselhart/vim-monokai-phoenix'
-Plug 'FabianGeiselhart/vim-termscheme'
+Plug 'f4814/vim-termscheme'
 Plug 'vietjtnguyen/toy-blocks'
 Plug 'kshenoy/vim-signature'
 Plug 'itchyny/lightline.vim'
@@ -125,7 +135,6 @@ Plug 'junegunn/goyo.vim', {'on': ['Goyo'] }
 Plug 'junegunn/limelight.vim', {'on': ['Goyo', 'Limelight'] }
 
 " Languages
-Plug 'w0rp/ale' " Linting
 Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
@@ -145,12 +154,13 @@ let g:session_autoload = 'no'
 if executable('ag')
     let g:ackprg = "ag --vimgrep"
 endif
+command -nargs=+ Ag Ack <args> " I use ag
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
 let g:fzf_command_prefix = 'FZF' " Enable all FZF commands
 let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
+  \ { 'fg':    ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
@@ -166,18 +176,6 @@ let g:fzf_colors =
 
 " lightline config
 let g:lightline = { 'colorscheme': 'molokai' }
-
-" ALE Config
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_set_loclist = 1
-let g:ale_sign_column_always = 1
-let g:ale_warn_about_trailing_whitespace = 0
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-let g:ale_linters = {
-    \   'haskell': ['stack-build'],
-    \   'python': ['flake8']
-    \}
 
 " Python stuff
 let g:SimpylFold_fold_import = 0
@@ -197,7 +195,7 @@ let mapleader = ","
 let maplocalleader = " "
 
 " Allow saving files as sudo
-cmap w!! w !sudo tee > /dev/null %<CR>
+command SudoWrite w !sudo tee > /dev/null %
 
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
@@ -214,14 +212,13 @@ tnoremap <C-H> <C-W><C-H>
 " toggle editor settings
 nnoremap <leader>eh <Esc>:noh<CR>
 nnoremap <leader>ep <Esc>:setlocal paste!<CR>
-nnoremap <leader>es <Esc>:setlocal spelllang=
-nnoremap <leader>en <Esc>:setlocal relativenumber!<CR>
+nnoremap <leader>er <Esc>:setlocal relativenumber!<CR>
+nnoremap <leader>en <Esc>:setlocal number!<CR>
 nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
-nnoremap <leader>el <Esc>:lopen<CR>
-nnoremap <leader>elc <Esc>:lclose<CR>
 
-" Plugins
-nnoremap <leader>pc <Esc>:ALELint<CR>
+nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
+nnoremap <LocalLeader>r <Esc>:setlocal relativenumber<CR>
+nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>
