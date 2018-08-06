@@ -13,3 +13,5 @@ swaygrab $pic
 convert -blur 0x6 $pic $pic
 
 swaylock -i $pic
+swaymsg mode "default"
+

@@ -44,7 +44,12 @@
   depends:
     default:
       - sway
+      - i3blocks
+      - sysstat
       - pamixer
+      - udiskie
+      - otf-font-awesome
+      - perl-mimeinfo
 
 - name: ranger
   depends:
@@ -61,6 +66,7 @@
       - chromium
       - cmatrix
       - cowsay
+      - eog
       - firefox
       - gimp
       - htop
@@ -72,6 +78,10 @@
       - texlive-most
       - vlc
       - zathura
+      - zathura-cb
+      - zathura-pdf-mupdf
+      - unzip
+      - unrar
 
 # name: program + folder
 # depends:

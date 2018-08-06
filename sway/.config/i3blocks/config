@@ -1,0 +1,42 @@
+[mediaplayer]
+label=
+command=~/.config/i3blocks/mediaplayer
+interval=5
+signal=10
+
+[swap]
+label=
+instance=swap
+command=~/.config/i3blocks/memory | tail -1
+interval=10
+separator=false
+color=#ffff00
+
+[ram]
+label=
+command=~/.config/i3blocks/memory | tail -1
+interval=10
+color=#ffff00
+
+[cpu_usage]
+label=
+command=/usr/lib/i3blocks/cpu_usage
+interval=10
+color=#00ff7f
+
+[cpu_temperature]
+label=
+command=/usr/lib/i3blocks/temperature
+interval=10
+color=#ff0000
+
+[volume]
+command=~/.config/i3blocks/volume
+interval=once
+signal=1
+color=#8080ff
+
+[time]
+label=
+command= date '+%d/%m/%Y %H:%M'
+interval=1

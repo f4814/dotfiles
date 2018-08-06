@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "$BLOCK_BUTTON" == "4" ]; then
+    pamixer -i 2
+elif [ "$BLOCK_BUTTON" == "5" ]; then
+    pamixer -d 2
+elif [ "$BLOCK_BUTTON" == "1" ]; then
+    pamixer -t
+fi
+
+if [ "$(pamixer --get-mute)" == "true" ]; then
+    echo " M"
+else
+    echo "  $(pamixer --get-volume)"
+fi
+pkill -RTMIN+1 i3blocks
