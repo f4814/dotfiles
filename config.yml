@@ -57,6 +57,8 @@
       - ranger
       - atool
 
+- name: ghc
+
 - name: system
   depends:
     default:
