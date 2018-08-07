@@ -44,6 +44,7 @@
   depends:
     default:
       - sway
+      - playerctl
       - i3blocks
       - sysstat
       - pamixer
