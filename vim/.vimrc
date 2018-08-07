@@ -17,6 +17,8 @@ set undofile                    " Persistent undo
 set undodir=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
+set listchars=trail:·           " Show trailing whitespace
+set list                        "Required by listchar
 
 " Tab specific option
 set tabstop=8                   "A tab is 8 spaces
@@ -154,7 +156,7 @@ let g:session_autoload = 'no'
 if executable('ag')
     let g:ackprg = "ag --vimgrep"
 endif
-command -nargs=+ Ag Ack <args> " I use ag
+command! -nargs=+ Ag Ack <args> " I use ag
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
@@ -195,7 +197,7 @@ let mapleader = ","
 let maplocalleader = " "
 
 " Allow saving files as sudo
-command SudoWrite w !sudo tee > /dev/null %
+command! SudoWrite w !sudo tee > /dev/null %
 
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
@@ -217,7 +219,7 @@ nnoremap <leader>en <Esc>:setlocal number!<CR>
 nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
 
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
-nnoremap <LocalLeader>r <Esc>:setlocal relativenumber<CR>
+nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
 nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>
 
 " FZF
