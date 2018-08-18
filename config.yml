@@ -48,7 +48,6 @@
       - i3blocks
       - sysstat
       - pamixer
-      - udiskie
       - otf-font-awesome
       - perl-mimeinfo
 
@@ -85,6 +84,11 @@
       - zathura-pdf-mupdf
       - unzip
       - unrar
+
+- name: autostart
+  depends:
+    default:
+      - udiskie
 
 # name: program + folder
 # depends:

@@ -210,6 +210,4 @@ bar {
     status_command i3blocks
 }
 
-exec --no-startup-id mpd
-exec --no-startup-id udiskie -a -n &
 include /etc/sway/config.d/*
