@@ -82,6 +82,11 @@ augroup Goyo
     autocmd! User GoyoLeave nested call <SID>goyoLeave()
 augroup END
 
+augroup Session
+    autocmd!
+    autocmd VimLeave * call <SID>saveSession()
+augroup END
+
 
 function! s:goyoEnter()
     set nocursorline
@@ -95,6 +100,18 @@ function! s:goyoLeave()
     set cursorline
     set textwidth=0
     Limelight!
+endfunction
+
+function! s:openSession()
+    if filereadable("vimsession")
+        source vimsession
+    endif
+endfunction
+
+function! s:saveSession()
+    if filereadable("vimsession")
+        mksession vimsession
+    endif
 endfunction
 
 " Modify errorformat to ignore all unmatched lines
@@ -118,7 +135,6 @@ Plug 'xolox/vim-misc'
 Plug 'vimwiki/vimwiki'
 
 " Core
-Plug 'xolox/vim-session'
 Plug 'mileszs/ack.vim'
 
 " UI
@@ -146,11 +162,6 @@ call plug#end()
 
 " Color
 colorscheme termscheme
-
-" Sessions
-let g:session_directory = '~/.vim/sessions'
-let g:session_autosave = 'yes'
-let g:session_autoload = 'no'
 
 " Ag
 if executable('ag')
@@ -198,6 +209,7 @@ let maplocalleader = " "
 
 " Allow saving files as sudo
 command! SudoWrite w !sudo tee > /dev/null %
+command! OpenSession call <SID>openSession()
 
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
