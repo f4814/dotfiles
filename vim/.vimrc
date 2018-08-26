@@ -110,7 +110,7 @@ endfunction
 
 function! s:saveSession()
     if filereadable("vimsession")
-        mksession vimsession
+        mksession! vimsession
     endif
 endfunction
 
