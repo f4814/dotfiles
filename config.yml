@@ -75,6 +75,7 @@
       - libreoffice-fresh
       - libreoffice-fresh-de
       - libreoffice-fresh-en-gb
+      - libqalculate
       - mcomix
       - mpv
       - texlive-most
@@ -84,6 +85,7 @@
       - zathura-pdf-mupdf
       - unzip
       - unrar
+      - wget
 
 - name: autostart
   depends:
