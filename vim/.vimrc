@@ -68,6 +68,19 @@ set noshowmode                  " Hide the default mode text
 
 set signcolumn="yes"            " Always show signcolumn
 
+" Statusline
+set statusline=
+set statusline=%q                                       " Quickfix or Loclist
+set statusline=%t                                       " tail of the filename
+set statusline+=%m                                      " modified flag
+set statusline+=%r                                      " read only flag
+set statusline+=%=                                      " left/right separator
+set statusline+=%y                                      " filetype
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},       " file encoding
+set statusline+=%{&ff}]\                                " file format
+set statusline+=[%c\:                                    " cursor column
+set statusline+=%l/%L]                                  " cursor line/total lines
+
 """"""""""""
 "" SCRIPTS "
 """"""""""""
@@ -85,6 +98,12 @@ augroup END
 augroup Session
     autocmd!
     autocmd VimLeave * call <SID>saveSession()
+augroup END
+
+augroup StatusLine
+    autocmd!
+    autocmd InsertEnter,InsertChange * call <SID>statuslineMode('')
+    autocmd VimEnter,BufNew,InsertLeave * call <SID>statuslineMode('n')
 augroup END
 
 
@@ -111,6 +130,18 @@ endfunction
 function! s:saveSession()
     if filereadable("vimsession")
         mksession! vimsession
+    endif
+endfunction
+
+" Change highlighting of the status line
+function! s:statuslineMode(m)
+    setlocal statusline<
+    if a:m == 'n'
+        let &l:statusline='[N] '.&l:statusline
+    elseif v:insertmode == 'i'
+        let &l:statusline='[I] '.&l:statusline
+    elseif v:insertmode == 'r' || v:insertmode == 'v'
+        let &l:statusline='[R] '.&l:statusline
     endif
 endfunction
 
@@ -141,7 +172,6 @@ Plug 'mileszs/ack.vim'
 Plug 'f4814/vim-termscheme'
 Plug 'vietjtnguyen/toy-blocks'
 Plug 'kshenoy/vim-signature'
-Plug 'itchyny/lightline.vim'
 
 " Edit
 Plug 'tpope/vim-surround'
