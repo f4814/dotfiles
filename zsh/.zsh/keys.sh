@@ -10,3 +10,13 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # returning from command mode
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
+
+# Use C-Z to toggle between background and foreground
+function Resume {
+    fg
+    zle push-input
+    BUFFER=""
+    zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
