@@ -217,9 +217,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" lightline config
-let g:lightline = { 'colorscheme': 'molokai' }
-
 " Python stuff
 let g:SimpylFold_fold_import = 0
 
@@ -257,11 +254,8 @@ tnoremap <C-L> <C-W><C-L>
 tnoremap <C-H> <C-W><C-H>
 
 " toggle editor settings
-nnoremap <leader>eh <Esc>:noh<CR>
-nnoremap <leader>ep <Esc>:setlocal paste!<CR>
-nnoremap <leader>er <Esc>:setlocal relativenumber!<CR>
-nnoremap <leader>en <Esc>:setlocal number!<CR>
-nnoremap <leader>ew <Esc>:%s/\s\+$//e<CR>:noh<CR>
+nnoremap <leader>h <Esc>:noh<CR>
+nnoremap <leader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
 
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
 nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
