@@ -2,14 +2,12 @@
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 
-virt()  {
-if [ -f /usr/bin/virtualenvwrapper.sh ]
+if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]
 then
-    source /usr/bin/virtualenvwrapper.sh
+    source /usr/bin/virtualenvwrapper_lazy.sh
 else
-    echo "Virtualenv not found"
+    echo "Virtualenvwrapper not found"
 fi
-}
 
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
 then
