@@ -171,7 +171,7 @@ Plug 'mileszs/ack.vim'
 " UI
 Plug 'f4814/vim-termscheme'
 Plug 'vietjtnguyen/toy-blocks'
-Plug 'kshenoy/vim-signature'
+Plug 'tomtom/quickfixsigns_vim'
 
 " Edit
 Plug 'tpope/vim-surround'
@@ -230,6 +230,9 @@ let haskell_indent_if = 4
 
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
+
+" Quickfixsigns
+let g:quickfixsigns_classes = ['qfl', 'loc', 'marks']
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
