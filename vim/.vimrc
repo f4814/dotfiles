@@ -241,6 +241,9 @@ let maplocalleader = " "
 command! SudoWrite w !sudo tee > /dev/null %
 command! OpenSession call <SID>openSession()
 
+" Runprg
+command! Run exe '!'.g:runprg
+
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -256,6 +259,8 @@ tnoremap <C-H> <C-W><C-H>
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
+nnoremap <leader>m <Esc>:make!<CR>
+nnoremap <leader>r <Esc>:Run<CR>
 
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
 nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
