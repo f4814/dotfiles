@@ -49,6 +49,11 @@ set autoindent                  " keep indentiation
 set smartindent                 " be smart
 filetype plugin indent on
 
+" Ag
+if executable('ag')
+    set grepprg=ag\ --vimgrep\ --nocolor
+endif
+
 """""""""""
 "" LAYOUT "
 """""""""""
@@ -165,9 +170,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'xolox/vim-misc'
 Plug 'vimwiki/vimwiki'
 
-" Core
-Plug 'mileszs/ack.vim'
-
 " UI
 Plug 'f4814/vim-termscheme'
 Plug 'vietjtnguyen/toy-blocks'
@@ -192,12 +194,6 @@ call plug#end()
 
 " Color
 colorscheme termscheme
-
-" Ag
-if executable('ag')
-    let g:ackprg = "ag --vimgrep"
-endif
-command! -nargs=+ Ag Ack <args> " I use ag
 
 " FZF
 let g:fzf_buffers_jump = 0 " Always open new window
