@@ -13,7 +13,6 @@ set $menu dmenu_run
 ## I/O ##
 #########
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * scale 1
 
 ############
 ## Layout ##
@@ -212,3 +211,4 @@ bar {
 
 exec --no-startup-id gpg-connect-agent updatestartuptty /bye
 include /etc/sway/config.d/*
+include ~/.config/localdots/sway

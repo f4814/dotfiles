@@ -7,4 +7,4 @@ source ~/.zsh/keys.sh
 source ~/.zsh/prompt.sh
 source ~/.zsh/alias.sh
 source ~/.zsh/tools.sh
-source ~/.config/$(hostname)/zsh.sh
+source ~/.config/localdots/zsh.sh
