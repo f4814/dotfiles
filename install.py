@@ -24,6 +24,10 @@ def getOS():
 
     if "ID=arch" in release_cont:
         return "archlinux"
+    elif "ID=debian" in release_cont:
+        return "debian"
+    else:
+        print("Linux Distro not detected")
 
 
 def runCmd(cmd, dryRun):
