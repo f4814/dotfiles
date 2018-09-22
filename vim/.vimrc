@@ -246,11 +246,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-tnoremap <Esc><Esc> <C-\><C-n> " Normal mode in terminal
-tnoremap <C-J> <C-W><C-J>
-tnoremap <C-K> <C-W><C-K>
-tnoremap <C-L> <C-W><C-L>
-tnoremap <C-H> <C-W><C-H>
+if has('terminal')
+    tnoremap <Esc><Esc> <C-\><C-n> " Normal mode in terminal
+    tnoremap <C-J> <C-W><C-J>
+    tnoremap <C-K> <C-W><C-K>
+    tnoremap <C-L> <C-W><C-L>
+    tnoremap <C-H> <C-W><C-H>
+endif
 
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
