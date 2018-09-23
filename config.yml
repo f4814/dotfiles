@@ -35,6 +35,7 @@
     default:
       - mpd
       - mpc
+      - cantata
 
 - name: ncmpcpp
   depends:
