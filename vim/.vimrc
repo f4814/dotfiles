@@ -17,7 +17,7 @@ set undofile                    " Persistent undo
 set undodir=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
-set listchars=trail:·           " Show trailing whitespace
+set listchars=trail:·,tab:>-    " Show trailing whitespace
 set list                        "Required by listchar
 
 " Tab specific option
