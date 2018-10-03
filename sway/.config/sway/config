@@ -12,7 +12,8 @@ set $menu dmenu_run
 #########
 ## I/O ##
 #########
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+# output * scale 1
 
 ############
 ## Layout ##
@@ -58,6 +59,9 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Dismiss mako notification
+    bindsym $mod+n exec makoctl dismiss
 
 # Moving around:
     # Move your focus around
@@ -210,5 +214,6 @@ bar {
 }
 
 exec --no-startup-id gpg-connect-agent updatestartuptty /bye
+exec --no-startup-id mako
 include /etc/sway/config.d/*
 include ~/.config/localdots/sway
