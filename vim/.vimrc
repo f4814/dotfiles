@@ -19,6 +19,9 @@ set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
 set listchars=trail:·,tab:>-    " Show trailing whitespace
 set list                        "Required by listchar
+set sessionoptions=blank,
+    \buffers,curdir,folds,help,
+    \tabpages,winsize,terminal
 
 " Tab specific option
 set tabstop=8                   "A tab is 8 spaces
@@ -168,7 +171,7 @@ call plug#begin('~/.vim/plugged')
 
 " Misc
 Plug 'xolox/vim-misc'
-Plug 'vimwiki/vimwiki'
+Plug 'igemnace/vim-makery'
 
 " UI
 Plug 'f4814/vim-termscheme'
@@ -237,9 +240,6 @@ let maplocalleader = " "
 command! SudoWrite w !sudo tee > /dev/null %
 command! OpenSession call <SID>openSession()
 
-" Runprg
-command! Run exe '!'.g:runprg
-
 " Split navigation with C-[hjkl]
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -257,8 +257,8 @@ endif
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
-nnoremap <leader>m <Esc>:make!<CR>
-nnoremap <leader>r <Esc>:Run<CR>
+nnoremap <leader>m <Esc>:wa<CR>:Mbuild!<CR>
+nnoremap <leader>r <Esc>:wa<CR>:Mrun!<CR>
 
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
 nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
