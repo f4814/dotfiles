@@ -24,7 +24,10 @@ alias sry='sudo $(fc -ln -1)'
 alias q="exit"
 alias ":q"="exit"
 alias c="clear"
+
+# Vim
 alias v='vim'
+alias vms='vim -S vimsession'
 
 alias md5rec="find . -type f -exec md5sum {} +"
 alias ccat='pygmentize -g'
