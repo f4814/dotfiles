@@ -10,6 +10,7 @@ set ttimeoutlen=0               " No esc delay
 set novisualbell                " Don't do visual bells
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
+set colorcolumn=80
 set scrolloff=3                 " Start scrolling when I'm 3 lines from top/bottom
 set backupdir=~/.vim/backup/    "
 set directory=~/.vim/backup/    " Where to save swap files
@@ -216,14 +217,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Python stuff
-let g:SimpylFold_fold_import = 0
-
-" Haskell stuff
-let haskell_indent_case = 4
-let hasekll_indent_guard = 4
-let haskell_indent_if = 4
-
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
 
@@ -259,6 +252,7 @@ nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
 nnoremap <leader>m <Esc>:wa<CR>:Mbuild!<CR>
 nnoremap <leader>r <Esc>:wa<CR>:Mrun!<CR>
+nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
 
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
 nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
