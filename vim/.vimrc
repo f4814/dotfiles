@@ -173,11 +173,11 @@ call plug#begin('~/.vim/plugged')
 " Misc
 Plug 'xolox/vim-misc'
 Plug 'igemnace/vim-makery'
+Plug 'pseewald/vim-anyfold'
+Plug 'Konfekt/FastFold'
 
 " UI
 Plug 'f4814/vim-termscheme'
-Plug 'vietjtnguyen/toy-blocks'
-Plug 'tomtom/quickfixsigns_vim'
 
 " Edit
 Plug 'tpope/vim-surround'
@@ -192,7 +192,8 @@ Plug 'junegunn/limelight.vim', {'on': ['Goyo', 'Limelight'] }
 Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'sheerun/vim-polyglot' " Language syntax
 Plug 'tomtom/tcomment_vim' " commenting
-Plug 'tmhedberg/SimpylFold', {'for': ['python']} " Python Folding
+Plug 'tmhedberg/SimpylFold' " Python Folding
+Plug 'Twinside/vim-haskellFold' " Haskell folding
 
 call plug#end()
 
@@ -222,6 +223,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever
 
 " Quickfixsigns
 let g:quickfixsigns_classes = ['qfl', 'loc', 'marks']
+
+" Fold
+let g:anyfold_activate=0 " Disable anyfold by default
+let g:anyfold_motion=0 " Don't map motion commands
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
