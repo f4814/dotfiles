@@ -1,4 +1,6 @@
-export PATH=~/.anaconda3/bin:~/.local/bin:$PATH
+export GOPATH=~/projects/go
+
+export PATH=~/.local/bin:~/projects/go/bin:$PATH
 
 export TERM=xterm-256color
 export EDITOR='vim'
