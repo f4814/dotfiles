@@ -168,34 +168,42 @@ endfunction
 """""""""""""""""""
 "" PLUGIN CONFIG "
 """""""""""""""""""
-call plug#begin('~/.vim/plugged')
+function! PackInit() abort
+    packadd minpac
+    call minpac#init()
 
-" Misc
-Plug 'xolox/vim-misc'
-Plug 'igemnace/vim-makery'
-Plug 'pseewald/vim-anyfold'
-Plug 'Konfekt/FastFold'
+    " Core
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
+    call minpac#add('Konfekt/FastFold')
+    call minpac#add('igemnace/vim-makery')
+    call minpac#add('sheerun/vim-polyglot') " Language syntax
+    call minpac#add('tomtom/tcomment_vim') " commenting
 
-" UI
-Plug 'f4814/vim-termscheme'
+    " Misc
+    call minpac#add('xolox/vim-misc')
+    call minpac#add('pseewald/vim-anyfold')
 
-" Edit
-Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'godlygeek/tabular', {'on': ['Tab', 'Tabularize'] }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim', {'on': ['Goyo'] }
-Plug 'junegunn/limelight.vim', {'on': ['Goyo', 'Limelight'] }
+    " UI
+    call minpac#add('f4814/vim-termscheme')
 
-" Languages
-Plug 'pbrisbin/vim-syntax-shakespeare'
-Plug 'sheerun/vim-polyglot' " Language syntax
-Plug 'tomtom/tcomment_vim' " commenting
-Plug 'tmhedberg/SimpylFold' " Python Folding
-Plug 'Twinside/vim-haskellFold' " Haskell folding
+    " Edit
+    call minpac#add('tpope/vim-surround')
+    call minpac#add('editorconfig/editorconfig-vim')
+    call minpac#add('godlygeek/tabular', {'type': 'opt'})
+    call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' })
+    call minpac#add('junegunn/fzf.vim')
+    call minpac#add('junegunn/goyo.vim', {'type': 'opt'})
+    call minpac#add('junegunn/limelight.vim', {'type': 'opt'})
 
-call plug#end()
+    " Language specific
+    call minpac#add('pbrisbin/vim-syntax-shakespeare', {'type': 'opt'})
+    call minpac#add('tmhedberg/SimpylFold', {'type': 'opt'})
+    call minpac#add('Twinside/vim-haskellFold', {'type': 'opt'})
+endfunction
+
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
 " Color
 colorscheme termscheme
@@ -251,14 +259,19 @@ endif
 
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
+
+nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>:setlocal paste?<CR>
+nnoremap <LocalLeader>l <Esc>:setlocal relativenumber!<CR>:setlocal rnu?<CR>
+nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>:setlocal nu?<CR>
+nnoremap <LocalLeader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
+
+" Interact with build system
 nnoremap <leader>m <Esc>:wa<CR>:Mbuild!<CR>
 nnoremap <leader>r <Esc>:wa<CR>:Mrun!<CR>
 nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
-
-nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
-nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
-nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>
-nnoremap <LocalLeader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
+nnoremap <LocalLeader>m <Esc>:wa<CR>:MbuildLocal!<CR>
+nnoremap <LocalLeader>r <Esc>:wa<CR>:MrunLocal!<CR>
+nnoremap <LocalLeader>t <Esc>:wa<CR>:MtestLocal!<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>

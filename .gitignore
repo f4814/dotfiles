@@ -5,7 +5,7 @@ ncmpcpp/ncmpcpp/error.log
 
 # Vim
 vim/.vim/autoload
-vim/.vim/plugged
+vim/.vim/pack
 vim/.vim/backup
 vim/.vim/.netrwhist
 vim/.vim/spell
