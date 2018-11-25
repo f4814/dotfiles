@@ -18,7 +18,7 @@ set undofile                    " Persistent undo
 set undodir=~/.vim/backup/
 set hidden                      " Multiple buffer editing
 set magic                       " Vim magic Regex mode
-set listchars=trail:·,tab:>-    " Show trailing whitespace
+set listchars=trail:·,tab:\ \    " Show trailing whitespace
 set list                        "Required by listchar
 set sessionoptions=blank,
     \buffers,curdir,folds,help,
@@ -221,9 +221,6 @@ let g:fzf_colors =
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
 
-" Quickfixsigns
-let g:quickfixsigns_classes = ['qfl', 'loc', 'marks']
-
 " Fold
 let g:anyfold_activate=0 " Disable anyfold by default
 let g:anyfold_motion=0 " Don't map motion commands
@@ -254,7 +251,6 @@ endif
 
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
-nnoremap <leader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
 nnoremap <leader>m <Esc>:wa<CR>:Mbuild!<CR>
 nnoremap <leader>r <Esc>:wa<CR>:Mrun!<CR>
 nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
@@ -262,6 +258,7 @@ nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
 nnoremap <LocalLeader>p <Esc>:setlocal paste!<CR>
 nnoremap <LocalLeader>r <Esc>:setlocal relativenumber!<CR>
 nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>
+nnoremap <LocalLeader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>
