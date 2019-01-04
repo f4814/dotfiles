@@ -14,7 +14,6 @@ alias lhoogle="stack exec hoogle -- server --port 8080 --local > /dev/null &"
 alias vfg="fg %vim"
 
 # package management
-alias tri='trizen'
 alias pcm='pacman'
 
 # sudo

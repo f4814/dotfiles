@@ -46,11 +46,19 @@
     default:
       - sway
       - playerctl
-      - i3blocks
       - sysstat
       - pamixer
       - otf-font-awesome
       - perl-mimeinfo
+      - jq
+      - udiskie
+      - imagemagick
+    aur:
+      - brillo
+      - slurp
+      - grim
+      - mako
+      - waybar
 
 - name: ranger
   depends:

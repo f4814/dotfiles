@@ -9,9 +9,28 @@ pic="/tmp/pic.png"
 # 	export SWAYSOCK=$(find $XDG_RUNTIME_DIR -iname sway*sock)
 # fi
 
-swaygrab $pic
-convert -blur 0x6 $pic $pic
+lock() {
+grim -t png $1
+convert -blur 0x6 $1 $1
+swaylock -i $pic --daemonize
+}
 
-swaylock -i $pic
 swaymsg mode "default"
 
+if [ "$1" == "SUSPEND" ]; then
+    lock $pic
+    systemctl suspend
+elif [ "$1" ==  "HIBERNATE" ]; then
+    lock $pic
+    systemctl hibernate -s No
+elif [ "$1" == "LOGOUT" ]; then
+    swaymsg -r exit
+elif [ "$1" == "REBOOT" ]; then
+    reboot
+elif [ "$1" == "POWEROFF" ]; then
+    poweroff
+else
+    lock $pic
+fi
+
+pkill swaynag
