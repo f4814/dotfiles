@@ -6,7 +6,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term termite
+set $term "termite --title=Terminal"
 set $menu dmenu_run
 
 #########
@@ -220,6 +220,7 @@ exec --no-startup-id gpg-connect-agent updatestartuptty /bye
 exec --no-startup-id udiskie --automount --notify
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
 exec --no-startup-id aa-notify
+exec --no-startup-id ~/.config/sway/idle.sh
 
 include /etc/sway/config.d/*
 include ~/.config/localdots/sway
