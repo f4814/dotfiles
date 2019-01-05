@@ -171,6 +171,7 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
 
     # move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+Shift+a focus child
 
 # Scratchpad:
     # Move the currently focused window to the scratchpad
