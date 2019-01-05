@@ -1,6 +1,6 @@
 mpd_host = "::1"
 
-lyrics_directory = ~/Music/lyrics
+lyrics_directory = ~/music/lyrics
 
 
 # Visualizer
