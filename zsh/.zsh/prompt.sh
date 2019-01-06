@@ -3,7 +3,7 @@ function current_pwd {
 }
 
 function machine_info {
-    if [ -z $IS_USER_PC ];
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
     then
         echo "%F{magenta}$(hostname)%f: "
     fi
