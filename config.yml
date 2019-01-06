@@ -87,6 +87,7 @@
       - libqalculate
       - mcomix
       - mpv
+      - rsync
       - texlive-most
       - vlc
       - zathura
