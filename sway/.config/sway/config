@@ -36,6 +36,7 @@ set $ws10 "10: "
 
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="pinentry-qt"] floating enable
+for_window [app_id="pavucontrol-qt"] floating enable
 
 ############
 ## Colors ##
@@ -149,6 +150,9 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
     bindsym $mod+Shift+g exec ~/.config/sway/scrot.sh REGION
     bindsym $mod+Ctrl+g exec ~/.config/sway/scrot.sh ALL
 
+    # Passmenu
+    bindsym $mod+p exec passmenu
+
 # Layout stuff:
     # You can "split" the current object of your focus with
     bindsym $mod+x splith
@@ -210,7 +214,7 @@ mode "power" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+p mode "power"
+bindsym $mod+Shift+p mode "power"
 
 ################
 ## Status Bar ##
@@ -219,7 +223,7 @@ bindsym $mod+p mode "power"
 exec --no-startup-id gpg-connect-agent updatestartuptty /bye
 exec --no-startup-id udiskie --automount --notify
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
-exec --no-startup-id aa-notify
+exec --no-startup-id aa-notify -p
 exec --no-startup-id ~/.config/sway/idle.sh
 
 include /etc/sway/config.d/*
