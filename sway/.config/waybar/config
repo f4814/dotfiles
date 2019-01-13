@@ -1,7 +1,6 @@
 {
     "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-right": ["custom/music", "pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -45,8 +44,17 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol",
+        "on-click": "pavucontrol-qt",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5"
+    },
+    "custom/music": {
+        "format": "{} ",
+        "exec-if": "pgrep mpd",
+        "exec": "~/.config/waybar/music-player.sh",
+        "return-type": "json",
+        "on-click": "~/.config/waybar/music-player.sh TOGGLE",
+        "on-scroll-up": "~/.config/waybar/music-player.sh UP",
+        "on-scroll-down": "~/.config/waybar/music-player.sh DOWN"
     }
 }
