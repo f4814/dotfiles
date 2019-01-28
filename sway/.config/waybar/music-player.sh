@@ -3,7 +3,7 @@
 loop() {
     while true
     do
-        pgrep waybar
+        pgrep waybar > /dev/null
         if [ $? -ne 0 ]; then
             exit
         fi
