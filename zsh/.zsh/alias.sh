@@ -16,6 +16,10 @@ alias vfg="fg %vim"
 # package management
 alias pcm='pacman'
 
+# udiskie
+alias mountu='udiskie-mount'
+alias umountu='udiske-umount'
+
 # sudo
 alias sry='sudo $(fc -ln -1)'
 
