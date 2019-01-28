@@ -1,7 +1,7 @@
 {
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["custom/music", "pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["custom/music", "pulseaudio", "custom/vpn", "network", "cpu", "memory", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -27,7 +27,7 @@
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
@@ -47,6 +47,12 @@
         "on-click": "pavucontrol-qt",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5"
+    },
+    "custom/vpn": {
+        "format": "{} ",
+        "exec": "~/.config/waybar/vpn.sh",
+        "interval": 10,
+        "return-type": "json"
     },
     "custom/music": {
         "format": "{} ",

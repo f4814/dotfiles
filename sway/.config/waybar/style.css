@@ -29,7 +29,7 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-music, #tray, #mode {
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-music, #tray, #mode, #custom-vpn {
     padding: 0 10px;
     margin: 0 5px;
 }
@@ -94,6 +94,14 @@ window#waybar {
 
 #tray {
     background-color: #2980b9;
+}
+
+#custom-vpn {
+    color: white;
+    background: #2980b9;
+}
+
+#custom-vpn.down {
 }
 
 #custom-music {
