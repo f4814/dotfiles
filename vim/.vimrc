@@ -257,6 +257,9 @@ if has('terminal')
     tnoremap <C-H> <C-W><C-H>
 endif
 
+" Change to alternate buffer
+nnoremap <BS> <C-^>
+
 " toggle editor settings
 nnoremap <leader>h <Esc>:noh<CR>
 
