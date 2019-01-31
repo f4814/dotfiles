@@ -18,7 +18,7 @@ alias pcm='pacman'
 
 # udiskie
 alias mountu='udiskie-mount'
-alias umountu='udiske-umount'
+alias umountu='udiskie-umount'
 
 # sudo
 alias sry='sudo $(fc -ln -1)'
