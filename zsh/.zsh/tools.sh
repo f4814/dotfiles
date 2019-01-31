@@ -20,6 +20,7 @@ if [ -f /usr/share/fzf/completion.zsh ] && [ -f /usr/share/fzf/key-bindings.zsh 
 then
     export FZF_DEFAULT_COMMAND='fd --type f'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND='fd --type d'
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
 else
