@@ -58,6 +58,9 @@ if executable('ag')
     set grepprg=ag\ --vimgrep\ --nocolor
 endif
 
+" Netrw
+let g:netrw_liststyle=3
+
 """""""""""
 "" LAYOUT "
 """""""""""
@@ -178,6 +181,7 @@ function! PackInit() abort
     call minpac#add('igemnace/vim-makery')
     call minpac#add('sheerun/vim-polyglot') " Language syntax
     call minpac#add('tomtom/tcomment_vim') " commenting
+    call minpac#add('tpope/vim-vinegar') " File explorer
 
     " Misc
     call minpac#add('xolox/vim-misc')
