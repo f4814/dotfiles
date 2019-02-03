@@ -155,8 +155,8 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
 
 # Layout stuff:
     # You can "split" the current object of your focus with
-    bindsym $mod+x splith
-    bindsym $mod+v splitv
+    bindsym $mod+v splith
+    bindsym $mod+x splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
