@@ -21,7 +21,13 @@ elif [ "$1" == "REBOOT" ]; then
     reboot
 elif [ "$1" == "POWEROFF" ]; then
     poweroff
-else
+elif [ "$1" == "LOCK" ]; then
     lock $pic
+else
+    if pgrep swayidle > /dev/null; then
+        killall -SIGUSR1 swayidle
+    else
+        lock $pic
+    fi
 fi
 
