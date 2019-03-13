@@ -8,3 +8,5 @@ elif [ "$1" == "REGION" ]; then
 else
     grim $name
 fi
+
+paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
