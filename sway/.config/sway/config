@@ -7,6 +7,7 @@ set $down j
 set $up k
 set $right l
 set $term "termite --title=Terminal"
+set $float_term "termite --title=Floating"
 set $menu dmenu_run
 
 #########
@@ -39,6 +40,8 @@ set $ws10 "10: "
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="pinentry-qt"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
+for_window [app_id="termite" title="Floating"] floating enable, move scratchpad, scratchpad show;
+
 ############
 ## Colors ##
 ############
@@ -50,6 +53,7 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
 # Basics:
     # start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $float_term
 
     # kill focused window
     bindsym Mod1+f4 kill
