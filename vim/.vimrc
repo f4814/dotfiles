@@ -78,7 +78,7 @@ set laststatus=2                " Always display the statusline in all windows
 set showtabline=2               " Always display the tabline
 set noshowmode                  " Hide the default mode text
 
-set signcolumn="yes"            " Always show signcolumn
+set signcolumn=yes            " Always show signcolumn
 
 " Statusline
 set statusline=
@@ -120,6 +120,7 @@ augroup END
 
 
 function! s:goyoEnter()
+    packadd limelight.vim
     set nocursorline
     set nocursorcolumn
     set textwidth=80
@@ -182,6 +183,9 @@ function! PackInit() abort
     call minpac#add('sheerun/vim-polyglot') " Language syntax
     call minpac#add('tomtom/tcomment_vim') " commenting
     call minpac#add('tpope/vim-vinegar') " File explorer
+    call minpac#add('autozimu/LanguageClient-neovim',
+                \ {'branch': 'next', 'do': 'bash install.sh'}) " LSP
+
 
     " Misc
     call minpac#add('xolox/vim-misc')
@@ -229,6 +233,23 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" LSP
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ 'go': ['bingo'],
+  \ 'python': ['pyls'],
+  \ }
+
+let g:LanguageClient_rootMarkers = {
+  \ 'go': ['.git', 'go.mod'],
+  \ 'python': ['.git', 'pyproject.toml', 'setup.py', 'requirements.txt'],
+  \ }
+
+set completefunc=LanguageClient#complete
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+let g:LanguageClient_changeThrottle = 5
+let g:LanguageClient_diagnosticsEnable = 1
 
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
@@ -279,6 +300,13 @@ nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
 nnoremap <LocalLeader>m <Esc>:wa<CR>:MbuildLocal!<CR>
 nnoremap <LocalLeader>r <Esc>:wa<CR>:MrunLocal!<CR>
 nnoremap <LocalLeader>t <Esc>:wa<CR>:MtestLocal!<CR>
+
+" LSP
+nnoremap <silent> K <Esc>:call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd <Esc>:call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>ls <Esc>:call LanguageClient#workspace_symbol()<CR>
+nnoremap <silent> <leader>lr <Esc>:call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>lf <Esc>:call LanguageClient#textDocument_formatting_sync()<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>
