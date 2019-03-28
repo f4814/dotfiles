@@ -23,6 +23,7 @@ set list                        "Required by listchar
 set sessionoptions=blank,
     \buffers,curdir,help,
     \tabpages,winsize,terminal
+set viewoptions=cursor,folds,slash,unix
 
 " Tab specific option
 set tabstop=8                   "A tab is 8 spaces
@@ -107,7 +108,7 @@ augroup Goyo
     autocmd! User GoyoLeave nested call <SID>goyoLeave()
 augroup END
 
-augroup Session
+augroup Session " Manage sessions and views
     autocmd!
     autocmd VimLeave * call <SID>saveSession()
 augroup END
@@ -183,6 +184,7 @@ function! PackInit() abort
     call minpac#add('sheerun/vim-polyglot') " Language syntax
     call minpac#add('tomtom/tcomment_vim') " commenting
     call minpac#add('tpope/vim-vinegar') " File explorer
+    call minpac#add('zhimsel/vim-stay') " View Manager
     call minpac#add('autozimu/LanguageClient-neovim',
                 \ {'branch': 'next', 'do': 'bash install.sh'}) " LSP
 
