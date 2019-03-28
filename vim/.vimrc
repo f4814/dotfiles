@@ -21,7 +21,7 @@ set magic                       " Vim magic Regex mode
 set listchars=trail:·,tab:\ \    " Show trailing whitespace
 set list                        "Required by listchar
 set sessionoptions=blank,
-    \buffers,curdir,folds,help,
+    \buffers,curdir,help,
     \tabpages,winsize,terminal
 
 " Tab specific option
@@ -205,7 +205,7 @@ function! PackInit() abort
 
     " Language specific
     call minpac#add('pbrisbin/vim-syntax-shakespeare', {'type': 'opt'})
-    call minpac#add('tmhedberg/SimpylFold', {'type': 'opt'})
+    call minpac#add('tmhedberg/SimpylFold')
     call minpac#add('Twinside/vim-haskellFold', {'type': 'opt'})
 endfunction
 
