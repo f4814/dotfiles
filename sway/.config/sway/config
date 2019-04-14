@@ -229,6 +229,7 @@ exec --no-startup-id gpg-connect-agent updatestartuptty /bye
 exec --no-startup-id udiskie --automount --notify
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
 exec --no-startup-id ~/.config/sway/idle.sh
+exec --no-startup-id mako
 
 include /etc/sway/config.d/*
 include ~/.config/localdots/sway
