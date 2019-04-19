@@ -44,7 +44,12 @@
 - name: sway
   depends:
     default:
+      - waybar
       - sway
+      - swaylock
+      - swayidle
+      - grim
+      - slurp
       - playerctl
       - sysstat
       - pamixer
@@ -53,12 +58,11 @@
       - jq
       - udiskie
       - imagemagick
-    aur:
-      - brillo
-      - slurp
-      - grim
       - mako
       - waybar
+      - blueman
+    aur:
+      - brillo
 
 - name: ranger
   depends:
