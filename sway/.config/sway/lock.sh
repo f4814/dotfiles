@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pic=".config/sway/lock.png"
+pic="~/.config/sway/lock.png"
 
 lock() {
 # grim -t png $1
