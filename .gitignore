@@ -9,6 +9,7 @@ vim/.vim/pack
 vim/.vim/backup
 vim/.vim/.netrwhist
 vim/.vim/spell
+vim/.vim/view
 vim/.vim/sessions
 
 # ranger
