@@ -24,6 +24,10 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
+#window {
+    padding: 0 5px;
+}
+
 #mode {
     background: #64727D;
     border-bottom: 3px solid white;
@@ -93,7 +97,7 @@ window#waybar {
 }
 
 #tray {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
 }
 
 #custom-vpn {
