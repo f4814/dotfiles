@@ -115,10 +115,16 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
     bindsym $mod+Shift+0 move container to workspace $ws10
 
     # move current workspace between monitors
-    bindsym $mod+Control+h move workspace to output left
-    bindsym $mod+Control+j move workspace to output down
-    bindsym $mod+Control+k move workspace to output up
-    bindsym $mod+Control+l move workspace to output right
+    bindsym $mod+Shift+Control+h move workspace to output left
+    bindsym $mod+Shift+Control+j move workspace to output down
+    bindsym $mod+Shift+Control+k move workspace to output up
+    bindsym $mod+Shift+Control+l move workspace to output right
+
+    # move betweeen monitors
+    bindsym $mod+Control+h focus output left
+    bindsym $mod+Control+j focus output down
+    bindsym $mod+Control+k focus output up
+    bindsym $mod+Control+l focus output right
 
 # Extra keys:
     # Brightness
