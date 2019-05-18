@@ -1,0 +1,100 @@
+floor $ (toEnum $ 9 - 4) / 2
+floor $ (toEnum $ 9 - 4)
+binarySearch 6 x
+binarySearch 5 x
+floor $ (toEnum $ 9 - 0) / 2
+length x - 1
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+binarySearch 4 x
+9 - 0
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+binarySearch 4 x
+:r
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+x !! 10
+x !! 9
+length x - 1
+binarySearch 6 x
+binarySearch 4 x
+binarySearch 5 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:t maybe
+splitAt 0 [1,2,3]
+[1,2,3] !! 0
+binarySearch 4 x
+binarySearch 5 x
+binarySearch 7 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+compare 1 2
+binarySearch 8 x
+binarySearch 7 x
+binarySearch 6 x
+binarySearch 5 x
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+binarySearch 4 x
+:r
+binarySearch 4 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+binarySearch 10 x
+binarySearch 1 x
+binarySearch 2 x
+binarySearch 3 x
+binarySearch 4 x
+binarySearch 5 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+:r
+:r
+:r
+linearSearch 5 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+linearSearch 5 x
+:r
+x !! 4
+x !! 4
+linearSearch 5 x
+let x = [1,2,3,4,5,6,7,8,9,10] :: [Int]
+linearSearch 5 x
+:l Main.hs 
+:l Main.hs 
+:l Main.hs 
+:l Main.hs 
+:l Main.hs 
+:l Main.hs 
+splitAt 5 x
+x
+:t splitAt
+:t compare 
+:t cmp
+cmp
+floor $ (toEnum $ length x) / 2
+(toEnum $ length x) / 2
+:t (toEnum $ length x) / 2
+:i Enum
+:t Enum
+:i Num
+:i Int
+:t (length x) / 2
+:t length x / 2
+:t floor $ length x / 2
+:t floor $ length x
+:t length x
+length x
+length 2

@@ -1,9 +1,0 @@
-[Unit]
-Description=Udiskie: Automount external media
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/udiskie --automount --no-notify --no-tray
-
-[Install]
-WantedBy=default.target
