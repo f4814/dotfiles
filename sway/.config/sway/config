@@ -236,7 +236,6 @@ exec --no-startup-id udiskie --automount --notify
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
 exec --no-startup-id ~/.config/sway/idle.sh
 exec --no-startup-id mako
-exec --no-startup-id blueman-applet
 
 include /etc/sway/config.d/*
 include ~/.config/localdots/sway
