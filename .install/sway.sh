@@ -6,8 +6,8 @@ list_supported() {
 
 install_arch() {
     sudo pacman -S waybar sway swaylock swayidle grim slurp playerctl sysstat \
-        pamixer otf-font-awesome perl-mimeinfo jq udiskie imagemagick mako \
-            waybar blueman
+        pamixer otf-font-awesome jq udiskie imagemagick mako waybar blueman \
+	xorg-server-xwayland lxqt-policykit pavucontrol-qt
 
     {
         yay -S brillo

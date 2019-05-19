@@ -17,6 +17,5 @@ install_common() {
     # Make backup dir
     mkdir ~/.vim/backup
 
-    # install plugins
-    vim -c ":PackUpdate" -c ":qa!"
+    echo "You still have to install the plugins using :PackUpdate in vim!"
 }

@@ -5,5 +5,5 @@ list_supported() {
 }
 
 install_arch() {
-    sudo pacman -S termite
+        sudo pacman -S termite ttf-hack
 }
