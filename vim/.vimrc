@@ -312,3 +312,7 @@ nnoremap <silent> <leader>lf <Esc>:call LanguageClient#textDocument_formatting_s
 
 " FZF
 nnoremap <C-t> :FZF<CR>
+
+
+" Localdots
+source ~/.config/localdots/vimrc
