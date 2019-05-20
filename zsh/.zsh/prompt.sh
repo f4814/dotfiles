@@ -3,7 +3,7 @@ function current_pwd {
 }
 
 function machine_info {
-    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]  || [ -n "$IS_CONTAINER" ]
     then
         echo "%F{magenta}$(hostname)%f: "
     fi
