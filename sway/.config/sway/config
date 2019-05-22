@@ -8,7 +8,7 @@ set $up k
 set $right l
 set $term "termite --title=Terminal"
 set $float_term "termite --title=Floating"
-set $menu dmenu_run
+set $menu "rofi -theme gruvbox-dark-hard -show run"
 
 #########
 ## I/O ##
