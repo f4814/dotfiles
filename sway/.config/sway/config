@@ -40,7 +40,7 @@ set $ws10 "10: "
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="pinentry-qt"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
-for_window [app_id="termite" title="Floating"] floating enable, move scratchpad, scratchpad show;
+for_window [app_id="termite" title="Floating"] floating enable
 
 ############
 ## Colors ##
