@@ -1,9 +1,19 @@
 #!/bin/sh
 
 list_supported() {
-    echo "arch"
+    echo "arch debian rasbian"
 }
 
 install_arch() {
     sudo pacman -S git vim
 }
+
+install_debian() {
+    sudo apt install git
+}
+
+install_raspbian() {
+    install_debian
+}
+
+eval $1

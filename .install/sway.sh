@@ -15,3 +15,5 @@ install_arch() {
         echo "Failed to install brillo from the aur. Brightness control will not work"
     }
 }
+
+eval $1

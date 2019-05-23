@@ -1,13 +1,23 @@
 #!/bin/sh
 
 list_supported() {
-    echo "arch"
+    echo "arch, debian, rasbian"
 }
 
 install_arch() {
     sudo pacman -S vim fzf the_silver_searcher
     install_common
 }
+
+install_debian() {
+    sudo aptitude install vim fzf silversearcher-ag
+    install_common
+}
+
+install_raspbian() {
+    install_debian
+}
+
 
 install_common() {
     # Install minpac
@@ -19,3 +29,5 @@ install_common() {
 
     echo "You still have to install the plugins using :PackUpdate in vim!"
 }
+
+eval $1

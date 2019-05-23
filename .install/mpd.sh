@@ -7,3 +7,5 @@ list_supported() {
 install_arch() {
     sudo pacman -S mpd mpc ncmpcpp
 }
+
+eval $1

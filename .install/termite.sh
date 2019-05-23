@@ -7,3 +7,5 @@ list_supported() {
 install_arch() {
         sudo pacman -S termite ttf-hack
 }
+
+eval $1

@@ -7,3 +7,5 @@ list_supportet() {
 install_arch() {
     sudo pacman -S tmux
 }
+
+eval $1

@@ -7,3 +7,5 @@ list_supported() {
 install_arch() {
     curl -sSL https://get.haskellstack.org/ | sh
 }
+
+eval $1

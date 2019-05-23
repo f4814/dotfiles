@@ -11,13 +11,12 @@ detect_os() {
 # $1: program
 # $2: os
 install() {
-    source .install/$1.sh
-
     { # Try distro install
         set -x
-        eval install_$2
+        eval ./.install/$1.sh install_$2
+	set +x
     } || {
-        echo "Unable to install for distro $1"
+        echo "Unable to install for distro $2"
         echo "Supported distros: $(list_supported)"
     }
 
