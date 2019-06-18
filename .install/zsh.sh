@@ -16,4 +16,8 @@ install_raspbian() {
 	install_debian
 }
 
+install_gentoo() {
+	sudo emerge --ask app-shells/zsh app-shells/gentoo-zsh-completions app-shells/zsh-completions
+}
+
 eval $1

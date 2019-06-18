@@ -20,7 +20,7 @@ install() {
         echo "Supported distros: $(list_supported)"
     }
 
-    stow $1
+    ${STOWPROG:-stow} $1
 }
 
 if [ $# -eq 1 ]; then

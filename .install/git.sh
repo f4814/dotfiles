@@ -16,4 +16,8 @@ install_raspbian() {
     install_debian
 }
 
+install_gentoo() {
+    sudo emerge --ask dev-vcs/git
+}
+
 eval $1

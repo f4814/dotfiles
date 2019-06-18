@@ -19,6 +19,11 @@ install_raspbian() {
 }
 
 
+install_gentoo() {
+	sudo emerge --ask app-editors/vim
+        install_common
+}
+
 install_common() {
     # Install minpac
     git clone https://github.com/k-takata/minpac.git \
