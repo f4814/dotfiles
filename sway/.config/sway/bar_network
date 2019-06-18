@@ -1,0 +1,42 @@
+wifi() {
+    cfg="$(ifconfig $DEVICE)"
+    state="$(cat /sys/class/net/$DEVICE/operstate)"
+    ssid="$(iw dev $DEVICE info | awk '$1 ~ /ssid/ {print $2}')"
+    strength="$(cat /proc/net/wireless | awk '$1 ~ /wlan0/ { print int($3 * 100 / 70) }')"
+    addrs="$(echo "$cfg" | awk '$1 ~ /(inet|inet6)/ {print $2}')"
+
+    if [ "$state" = "down" ]; then
+        echo "DOWN ($DEVICE)"
+        exit
+    fi
+
+    if [ "$ssid" = "" ]; then
+        echo "DISCONNECTED ($DEVICE)"
+        exit
+    fi
+
+    echo "$(echo "$addrs" | head -n 1) ($ssid) ($strength) ($DEVICE)"
+}
+
+wired() {
+    cfg="$(ifconfig $DEVICE)"
+    state="$(cat /sys/class/net/$DEVICE/operstate)"
+
+    if [ "$state" = "down" ]; then
+        echo "DOWN ($DEVICE)"
+        exit
+    fi
+
+    addrs="$(echo "$cfg" | awk '$1 ~ /(inet|inet6)/ {print $2}')"
+
+    echo "$(echo "$addrs" | head -n 1) ($DEVICE)"
+}
+
+DEVICE="$(echo "$BLOCK_INSTANCE" | awk -F ':' '{ print $2 }')"
+TYPE="$(echo "$BLOCK_INSTANCE" | awk -F ':' '{ print $1 }')"
+
+if [ "$TYPE" = "wired" ]; then
+    wired $DEVICE
+else
+    wifi $DEVICE
+fi

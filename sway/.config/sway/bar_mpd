@@ -1,0 +1,35 @@
+#!/bin/sh
+
+echo "$BLOCK_BUTTON" >> /tmp/t
+
+case "$BLOCK_BUTTON" in
+    1) mpc toggle > /dev/null ;; # Left
+    2) : ;; # Right
+    3) : ;; # Middle
+    4) mpc prev ;; # Up
+    5) mpc next ;; # down
+esac
+
+# mpc idle > /dev/null
+
+RAW=$(mpc status)
+
+case $RAW in
+    *playing*)
+        status=""
+        ;;
+    *paused*)
+        status=""
+        ;;
+    *)
+        status="none"
+        ;;
+esac
+
+if [ "$status" != "none" ]; then
+    song="$(mpc current)"
+    volume="$(mpc volume | sed 's/volume//')"
+
+    echo "$song ($volume) ($status)" # full_text
+    echo "$song" # short_text
+fi

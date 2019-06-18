@@ -13,7 +13,6 @@ set $menu "rofi -theme gruvbox-dark-hard -show run"
 #########
 ## I/O ##
 #########
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 output * bg ~/.config/sway/wallpaper.jpg fill
 seat seat0 hide_cursor 5000
 
@@ -153,9 +152,6 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
     bindsym $mod+n exec makoctl dismiss
     bindsym $mod+Shift+n exec makoctl dismiss -a
 
-    # Toggle the bar
-    bindsym $mod+b exec ~/.config/sway/bar.sh
-
     # Take a screenshot
     bindsym $mod+g exec ~/.config/sway/scrot.sh SCREEN
     bindsym $mod+Shift+g exec ~/.config/sway/scrot.sh REGION
@@ -251,6 +247,21 @@ bindsym $mod+Shift+p mode "power"
 ################
 ## Status Bar ##
 ################
+bar {
+    position bottom
+    mode hide
+
+    status_command i3blocks -c ~/.config/sway/i3blocks.conf
+    # font pango:DejaVu Sans Mono, Awesome 8
+
+    colors {
+        background #000000
+        inactive_workspace #000000 #000000 #FFFFFF
+        urgent_workspace #000000 #FF0000 #FFFFFF
+        active_workspace #000000 #111111 #FFFFFF
+        focused_workspace #000000 #333333 #FFFFFF
+    }
+}
 
 exec --no-startup-id gpg-connect-agent updatestartuptty /bye
 exec --no-startup-id udiskie --automount --notify
