@@ -1,0 +1,21 @@
+openvpn() {
+    if ! pgrep openvpn > /dev/null; then
+        return
+    fi
+
+    pgrep -a openvpn | awk '{for(i=1;i<=NF;i++) if ($i == "--config") print $(i+1)}' | tr '\n' ' '
+}
+
+wireguard() {
+    :
+}
+
+ovpn="$(openvpn)"
+
+wg="$(wireguard)"
+
+if [ "$wg" = "" ] && [ "$ovpn" = "" ]; then
+    echo "DOWN"
+fi
+
+echo "$wg $ovpn"
