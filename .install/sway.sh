@@ -6,7 +6,7 @@ list_supported() {
 
 install_arch() {
     sudo pacman -S sway swaylock swayidle grim slurp \
-        otf-font-awesome jq mako \
+        otf-font-awesome jq mako sysstat \
 	xorg-server-xwayland lxqt-policykit pavucontrol-qt
 
     {
