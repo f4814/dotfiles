@@ -1,9 +1,12 @@
 wifi() {
-    cfg="$(ifconfig $DEVICE)"
     state="$(cat /sys/class/net/$DEVICE/operstate)"
     ssid="$(iw dev $DEVICE info | awk '$1 ~ /ssid/ {print $2}')"
+
+    if [ $? -ne 0 ]; then # Device does not exist
+        exit
+    fi
+
     strength="$(cat /proc/net/wireless | awk '$1 ~ /wlan0/ { print int($3 * 100 / 70) }')"
-    addrs="$(echo "$cfg" | awk '$1 ~ /(inet|inet6)/ {print $2}')"
 
     if [ "$state" = "down" ]; then
         echo "DOWN ($DEVICE)"
@@ -15,11 +18,16 @@ wifi() {
         exit
     fi
 
-    echo "$(echo "$addrs" | head -n 1) ($ssid) ($strength) ($DEVICE)"
+    echo "($ssid) ($strength) ($DEVICE)"
 }
 
 wired() {
-    cfg="$(ifconfig $DEVICE)"
+    cfg="$(ip addr show $DEVICE)"
+
+    if [ $? -ne 0 ]; then # Device does not exist
+        exit
+    fi
+
     state="$(cat /sys/class/net/$DEVICE/operstate)"
 
     if [ "$state" = "down" ]; then
