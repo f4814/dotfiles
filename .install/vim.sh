@@ -20,7 +20,7 @@ install_raspbian() {
 
 
 install_gentoo() {
-	sudo emerge --ask app-editors/vim
+	sudo emerge --ask app-editors/vim sys-apps/the_silver_searcher
         install_common
 }
 
