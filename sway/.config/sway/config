@@ -6,8 +6,8 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term "termite --title=Terminal"
-set $float_term "termite --title=Floating"
+set $term "~/.config/sway/terminal"
+set $float_term "~/.config/sway/terminal --floating"
 set $menu "rofi -theme gruvbox-dark-hard -show run"
 
 #########
@@ -39,7 +39,7 @@ set $ws10 "10: "
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="pinentry-qt"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
-for_window [app_id="termite" title="Floating"] floating enable
+for_window [title="Floating"] floating enable
 
 ############
 ## Colors ##
