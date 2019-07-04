@@ -6,8 +6,8 @@ case "$BLOCK_BUTTON" in
     1) mpc toggle > /dev/null ;; # Left
     2) : ;; # Right
     3) : ;; # Middle
-    4) mpc prev ;; # Up
-    5) mpc next ;; # down
+    4) mpc volume +5 > /dev/null ;; # Up
+    5) mpc volume -5 > /dev/null ;; # down
 esac
 
 # mpc idle > /dev/null
