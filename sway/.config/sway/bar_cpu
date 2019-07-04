@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PERCENT="$(mpstat | awk '{print 100 - $13}' | tail -n 1)"
+PERCENT="$(mpstat 1 1 | awk '{print 100 - $12}' | tail -n 1)"
 
 echo "$PERCENT%" # full_text
 
