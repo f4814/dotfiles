@@ -19,10 +19,10 @@ install_arch() {
 install_gentoo() {
     sudo emerge --ask gui-wm/sway gui-apps/swaylock gui-apps/swayidle \
         gui-apps/swaybg gui-apps/mako app-misc/jq media-fonts/fontawesome \
-        media-sound/pavucontrol-qt x11-misc/i3blocks
+        media-sound/pavucontrol-qt x11-misc/i3blocks x11-misc/rofi
 
-    echo "Termite is not in the Gentoo repositories. Install another terminal emulator"
-    echo "and symlink ~/.local/bin/termite to it"
+    echo "You have to install a supported terminal emulator."
+    echo "Currently thats either termite or kitty"
 }
 
 eval $1

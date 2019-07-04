@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if which termite > /dev/null; then
+    if [ "$1" = "--floating" ]; then
+        args="--title=Floating"
+    fi
+
+    termite $Args
+elif which kitty > /dev/null; then
+    if [ "$1" = "--floating" ]; then
+        args="--title=Floating"
+    fi
+
+    kitty $args
+fi
