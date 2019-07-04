@@ -21,13 +21,14 @@ install_raspbian() {
 
 install_gentoo() {
 	sudo emerge --ask app-shells/zsh app-shells/gentoo-zsh-completions \
-            app-shells/zsh-completions sys-apps/fd sys-apps/the-silver-searcher
+            app-shells/zsh-completions sys-apps/fd sys-apps/the_silver_searcher
         install_common
 }
 
 install_common() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --bin
+    mkdir -p ~/.local/bin
     cp ~/.fzf/bin/fzf ~/.local/bin/
 }
 
