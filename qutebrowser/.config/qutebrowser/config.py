@@ -33,7 +33,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 c.url.searchengines = {"DEFAULT":"https://startpage.com/do/dsearch?query={}",
                        "DICT": "https://dictionary.cambridge.org/dictionary/english/{}",
                        "MINECRAFT": "https://minecraft.gamepedia.com/index.php?search={}",
-                       "YT": "https://youtube.com/results?search_query={}"}
+                       "YT": "https://youtube.com/results?search_query={}",
+                       "GENTOO": "https://wiki.gentoo.org/index.php?search={}"}
 
 ###########
 # Privacy #
