@@ -13,7 +13,7 @@ set $menu "rofi -theme gruvbox-dark-hard -show run"
 #########
 ## I/O ##
 #########
-output * bg ~/.config/sway/wallpaper.jpg fill
+output * bg ~/.config/sway/wallpaper.png fill
 seat seat0 hide_cursor 5000
 
 ############
@@ -40,6 +40,7 @@ for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [app_id="pinentry-qt"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
 for_window [title="Floating"] floating enable
+for_window [app_id=none] floating enable
 
 ############
 ## Colors ##
