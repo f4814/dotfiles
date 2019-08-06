@@ -103,11 +103,6 @@ augroup Numbers " Toggle relative numbers
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
 augroup END
 
-augroup Goyo
-    autocmd! User GoyoEnter nested call <SID>goyoEnter()
-    autocmd! User GoyoLeave nested call <SID>goyoLeave()
-augroup END
-
 augroup Session " Manage sessions and views
     autocmd!
     autocmd VimLeave * call <SID>saveSession()
@@ -118,22 +113,6 @@ augroup StatusLine
     autocmd InsertEnter,InsertChange * call <SID>statuslineMode('')
     autocmd VimEnter,BufNew,InsertLeave * call <SID>statuslineMode('n')
 augroup END
-
-
-function! s:goyoEnter()
-    packadd limelight.vim
-    set nocursorline
-    set nocursorcolumn
-    set textwidth=80
-    Limelight
-endfunction
-
-function! s:goyoLeave()
-    set cursorcolumn
-    set cursorline
-    set textwidth=0
-    Limelight!
-endfunction
 
 function! s:openSession()
     if filereadable("vimsession")
@@ -179,19 +158,14 @@ function! PackInit() abort
 
     " Core
     call minpac#add('k-takata/minpac', {'type': 'opt'})
-    call minpac#add('Konfekt/FastFold')
-    call minpac#add('igemnace/vim-makery')
     call minpac#add('sheerun/vim-polyglot') " Language syntax
     call minpac#add('tomtom/tcomment_vim') " commenting
     call minpac#add('tpope/vim-vinegar') " File explorer
-    call minpac#add('zhimsel/vim-stay') " View Manager
-    call minpac#add('autozimu/LanguageClient-neovim',
-                \ {'branch': 'next', 'do': 'bash install.sh'}) " LSP
-
+    call minpac#add('prabirshrestha/async.vim') " For LSP
+    call minpac#add('prabirshrestha/vim-lsp')
 
     " Misc
     call minpac#add('xolox/vim-misc')
-    call minpac#add('pseewald/vim-anyfold')
 
     " UI
     call minpac#add('f4814/vim-termscheme')
@@ -202,8 +176,6 @@ function! PackInit() abort
     call minpac#add('godlygeek/tabular', {'type': 'opt'})
     call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' })
     call minpac#add('junegunn/fzf.vim')
-    call minpac#add('junegunn/goyo.vim', {'type': 'opt'})
-    call minpac#add('junegunn/limelight.vim', {'type': 'opt'})
 
     " Language specific
     call minpac#add('pbrisbin/vim-syntax-shakespeare', {'type': 'opt'})
@@ -237,28 +209,22 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " LSP
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd'],
-  \ 'go': ['bingo'],
-  \ 'python': ['pyls'],
-  \ }
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
-let g:LanguageClient_rootMarkers = {
-  \ 'go': ['.git', 'go.mod'],
-  \ 'python': ['.git', 'pyproject.toml', 'setup.py', 'requirements.txt'],
-  \ }
-
-set completefunc=LanguageClient#complete
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-let g:LanguageClient_changeThrottle = 5
-let g:LanguageClient_diagnosticsEnable = 1
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_highlights_enabled = 1
 
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Just in case I'll ever install fugitive
-
-" Fold
-let g:anyfold_activate=0 " Disable anyfold by default
-let g:anyfold_motion=0 " Don't map motion commands
 
 """"""""""""""""""""
 "" SHORTCUT CONFIG "
@@ -295,20 +261,13 @@ nnoremap <LocalLeader>l <Esc>:setlocal relativenumber!<CR>:setlocal rnu?<CR>
 nnoremap <LocalLeader>n <Esc>:setlocal number!<CR>:setlocal nu?<CR>
 nnoremap <LocalLeader>w <Esc>:%s/\s\+$//e<CR>:noh<CR>
 
-" Interact with build system
-nnoremap <leader>m <Esc>:wa<CR>:Mbuild!<CR>
-nnoremap <leader>r <Esc>:wa<CR>:Mrun!<CR>
-nnoremap <leader>t <Esc>:wa<CR>:Mtest!<CR>
-nnoremap <LocalLeader>m <Esc>:wa<CR>:MbuildLocal!<CR>
-nnoremap <LocalLeader>r <Esc>:wa<CR>:MrunLocal!<CR>
-nnoremap <LocalLeader>t <Esc>:wa<CR>:MtestLocal!<CR>
-
 " LSP
-nnoremap <silent> K <Esc>:call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd <Esc>:call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>ls <Esc>:call LanguageClient#workspace_symbol()<CR>
-nnoremap <silent> <leader>lr <Esc>:call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>lf <Esc>:call LanguageClient#textDocument_formatting_sync()<CR>
+nnoremap <silent> K <Esc>:LspHover<CR>
+nnoremap <silent> gd <Esc>:LspDefinition<CR>
+nnoremap <silent> <leader>ls <Esc>:LspWorkspaceSymbol<CR>
+nnoremap <silent> <leader>lS <Esc>:LspDocumentSymbol<CR>
+nnoremap <silent> <leader>lr <Esc>:LspRename<CR>
+nnoremap <silent> <leader>lf <Esc>:LspDocumentFormat<CR>
 
 " FZF
 nnoremap <C-t> :FZF<CR>
