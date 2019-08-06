@@ -19,6 +19,12 @@ install_raspbian() {
     install_debian
 }
 
+install_gentoo() {
+    sudo emerge --ask --noreplace dev-lang/python
+
+    install_common
+}
+
 install_common() {
     # Pyenv
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
