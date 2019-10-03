@@ -41,6 +41,7 @@ for_window [app_id="pinentry-qt"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
 for_window [title="Floating"] floating enable
 for_window [app_id=none] floating enable
+for_window [app_id="wpa_gui"] floating enable
 
 ############
 ## Colors ##
@@ -128,8 +129,8 @@ client.focused #4c7899 #285577 #ffffff #2e9ef4 #ff0000
 
 # Extra keys:
     # Brightness
-    bindsym XF86MonBrightnessUp exec brillo -A 5
-    bindsym XF86MonBrightnessDown exec brillo -U 5
+    bindsym XF86MonBrightnessUp exec xbacklight -inc 1
+    bindsym XF86MonBrightnessDown exec xbacklight -dec 1
 
     # Sound
     bindsym XF86AudioRaiseVolume exec pamixer -i 5

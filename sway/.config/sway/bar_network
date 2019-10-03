@@ -42,6 +42,11 @@ wired() {
 
 DEVICE="$(echo "$BLOCK_INSTANCE" | awk -F ':' '{ print $2 }')"
 TYPE="$(echo "$BLOCK_INSTANCE" | awk -F ':' '{ print $1 }')"
+MANAGER="$(echo "$BLOCK_INSTANCE" | awk -F ':' '{ print $3 }')"
+
+case "$BLOCK_BUTTON" in
+    1) swaymsg "exec $MANAGER" ;;
+esac
 
 if [ "$TYPE" = "wired" ]; then
     wired $DEVICE
