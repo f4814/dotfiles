@@ -2,7 +2,7 @@
 # Layout #
 #########
 c.tabs.position = "top"
-c.tabs.show = "switching"
+c.tabs.show = "always"
 c.url.default_page = "~/.config/qutebrowser/default.html"
 c.url.start_pages = c.url.default_page
 
